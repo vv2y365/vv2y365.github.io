@@ -1,108 +1,74 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>条目施工中</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>空白提示页</title>
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      color: #bbbbbb;
+      font-family: serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
 
-<style>
-  body {
-    margin: 0;
-    background: #0b0b0b;
-    color: #bfbfbf;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
+    .box {
+      padding: 16px;
+      text-align: center;
+      width: fit-content;
+      background: transparent;
+      border-radius: 1px;
+    }
 
-  .box {
-    width: 560px;
-    max-width: 92%;
-    text-align: center;
-  }
+    .t1 {
+      font-size: 48px;
+      font-style: italic;
+    }
 
-  img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 16px;
-  }
+    .t2 {
+      font-size: 40px;
+      font-style: italic;
+    }
 
-  .t1 {
-    font-size: 18px;
-    color: #cfcfcf;
-    margin: 6px 0;
-  }
+    .t3 {
+      font-size: 32px;
+      font-style: italic;
+    }
 
-  .t2 {
-    font-size: 16px;
-    color: #bdbdbd;
-    margin: 6px 0;
-  }
+    .t4 {
+      font-size: 24px;
+      font-style: italic;
+      text-shadow: 0 0 20px #f085e0;
+    }
 
-  .t3 {
-    font-size: 14px;
-    color: #b0b0b0;
-    margin: 6px 0;
-  }
+    .t5 {
+      font-size: 20px;
+      font-style: italic;
+      text-decoration: line-through;
+      margin-top: 8px;
+    }
 
-  .t4 {
-    font-size: 13px;
-    color: #a0a0a0;
-    margin: 6px 0;
-  }
-
-  .pink {
-    font-size: 12px;
-    color: #ff4fa3;
-    margin-top: 14px;
-  }
-
-  .strike {
-    font-size: 12px;
-    color: #777;
-    text-decoration: line-through;
-    margin-top: 10px;
-  }
-
-  .stub {
-    margin-top: 14px;
-    font-size: 11px;
-    color: #666;
-  }
-
-  .header {
-    font-size: 20px;
-    color: #ddd;
-    margin-bottom: 10px;
-  }
-</style>
+    img {
+      width: 520px;
+      height: auto;
+      margin-top: 12px;
+      border-radius: 8px;
+    }
+  </style>
 </head>
-
 <body>
+  <div class="box">
+    <div class="t1">此处是有意留空的</div>
+    <div class="t2">本范本只是用来告诉你这一点</div>
+    <div class="t3">这一切都不是 幻觉！</div>
+    <div class="t4">还在辶里发呆干啥？醒醒吧阿宅！</div>
+    <div class="t5">这一切都不是幻觉！。</div>
 
-<div class="box">
-
-  <div class="header">施工中🚧</div>
-
-  <img src="UncycloTan11.png" alt="提示图片">
-
-  <div class="t1">此处是有意留空的</div>
-
-  <div class="t2">本范本只是用来告诉你这一点</div>
-
-  <div class="t3">这一切都不是幻觉</div>
-
-  <div class="t4">还在这里发呆干啥？醒醒吧阿宅</div>
-
- 
-
-  <div class="strike">一一这一切都不是幻觉！一一。</div>
-
-  
-
-</div>
-
+    <img src="UncycloTan11.png" alt="图片" />
+  </div>
 </body>
 </html>
