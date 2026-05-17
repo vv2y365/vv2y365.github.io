@@ -1,0 +1,132 @@
+
+.VPHero {
+  padding-top: 12px !important;
+  padding-bottom: 0px !important;
+}
+.hero h1 {
+  letter-spacing: 6px;
+  font-weight: 200;
+  animation: textGlitch 4s infinite;
+  mix-blend-mode: screen;
+}
+.description {
+  opacity: 0.5;
+  letter-spacing: 3px;
+  font-family: monospace;
+  font-size: 14px;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.vp-action-link {
+  border-radius: 8px !important;
+  background: rgba(255,255,255,0.03) !important;
+  border: 1px solid rgba(255,255,255,0.06) !important;
+  transition: all 0.3s ease !important;
+}
+.vp-action-link:hover {
+  background: white !important;
+  color: black !important;
+}
+.VPFeature {
+  background: rgba(255,255,255,0.01) !important;
+  border: 1px solid rgba(255,255,255,0.04) !important;
+  border-radius: 12px !important;
+  transition: transform 0.3s ease;
+}
+.VPFeature:hover {
+  transform: translateY(-3px);
+}
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 18px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.social-links a {
+  font-family: "Recursive", monospace;
+  text-decoration: none;
+
+
+  font-size: 18px;
+  letter-spacing: 4px;
+
+  color: rgb(0, 119, 255);
+
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+
+ 
+  font-variation-settings:
+    "wght" 850,
+    "MONO" 1,
+    "CASL" 0,
+    "slnt" 0;
+}
+.social-links a:hover {
+  color: #00ffaa;
+
+  font-size: 22px;
+  letter-spacing: 6px;
+
+  font-variation-settings:
+    "wght" 350,
+    "MONO" 1,
+    "CASL" 1,
+    "slnt" -12;
+
+  transform: translateY(-2px);
+}
+.social-links a:nth-child(1) {
+  transform: translateY(0px);
+}
+.social-links a:nth-child(2) {
+  transform: translateY(6px);
+  font-size: 16px;
+}
+.social-links a:nth-child(3) {
+  transform: translateY(-4px);
+  font-size: 20px;
+}
+
+/* underline glitch */
+.social-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 1px;
+  width: 0%;
+  background: #00ffaa;
+  transition: 0.3s;
+}
+.social-links a:hover::after {
+  width: 100%;
+}
+@keyframes textGlitch {
+0%,95%,100% { text-shadow: none;
+}
+96% { text-shadow: -2px 0 cyan, 2px 0 red;
+}
+98% { text-shadow: 1px 0 cyan, -1px 0 red;
+}
+}
+@media (max-width: 768px) {
+.social-links {
+    gap: 18px;
+}
+.social-links a {
+    font-size: 14px;
+    letter-spacing: 3px;
+}
+.social-links a:nth-child(2),
+  .social-links a:nth-child(3) {
+    transform: none;
+}
+}
+
