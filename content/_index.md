@@ -4,7 +4,7 @@ description: "这是往主页中添加内容的例子。"
 ---
 欢迎来到我的网站！我很高兴你的来访
 
-***特别感谢 赞助(0.39￥)，他的支持***
+***特别感谢赞助，他的支持***
 
   
 <div class="flex flex-wrap justify-center gap-0 m-0 p-0 my-0 mb-0 mt-0" style="margin: 0 !important; padding: 0 !important;">
