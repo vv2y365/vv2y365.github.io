@@ -2,14 +2,15 @@
 title: "Welcome"
 description: "这是往主页中添加内容的例子。"
 ---
-欢迎来到我的网站！我很高兴你的来访
+高中在读 欢迎来到我的网站！我很高兴你的来访
+Building 虽然现在还很简陋就是了
 
 ***特别感谢赞助，他的支持***
 
   
 <div class="flex flex-wrap justify-center gap-0 m-0 p-0 my-0 mb-0 mt-0" style="margin: 0 !important; padding: 0 !important;">
-  <a href="https://space.bilibili.com/1385775237" target="_blank" rel="noopener noreferrer" class="group relative flex flex-col items-center m-0 p-0" title="nazar-pc" aria-label="Sponsor: Miyako" style="margin: 0 !important; padding: 0 !important;">
-    <img class="nozoom h-16 w-16 rounded-full ring-2 ring-primary-500 transition-transform group-hover:scale-110 m-0" src="https://inhwuxtzwwyidklodzrk.supabase.co/storage/v1/object/public/music/wax.png" alt="nazar-pc" width="64" height="64" loading="lazy" style="margin: 0 !important;">
+  <a href="https://space.bilibili.com/1385775237" target="_blank" rel="noopener noreferrer" class="group relative flex flex-col items-center m-0 p-0" title="Miyako" aria-label="Sponsor: Miyako" style="margin: 0 !important; padding: 0 !important;">
+    <img class="nozoom h-16 w-16 rounded-full ring-2 ring-primary-500 transition-transform group-hover:scale-110 m-0" src="https://inhwuxtzwwyidklodzrk.supabase.co/storage/v1/object/public/music/wax.png" alt="Miyako" width="64" height="64" loading="lazy" style="margin: 0 !important;">
     <span class="block w-full truncate text-center text-sm text-neutral-600 transition-colors group-hover:text-primary-500 dark:text-neutral-400 m-0 p-0 leading-none" style="margin: 10px !important; padding: 0 !important;">
       @Miyako
     </span>
@@ -26,6 +27,18 @@ description: "这是往主页中添加内容的例子。"
 
 {{< timeline >}}
 
+{{< timelineItem icon="star" header="Shortcodes" badge="AWESOME" >}}
+{{< gallery >}}
+  
+  <img src="img/xy.png" class="grid-w33" />
+  <img src="img/t.png" class="grid-w33" />
+  <img src="img/d.png" class="grid-w33" />
+  <img src="img/macos.png" class="grid-w33" />
+  <img src="img/steam.png" class="grid-w33" />
+  <img src="img/ep.jpg" class="grid-w33" />
+{{< /gallery >}}
+{{< /timelineItem >}}
+
 {{< timelineItem icon="github" header="header" badge="badge test" subheader="subheader" >}}
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non magna ex. Donec sollicitudin ut lorem quis lobortis. Nam ac ipsum libero. Sed a ex eget ipsum tincidunt venenatis quis sed nisl. Pellentesque sed urna vel odio consequat tincidunt id ut purus. Nam sollicitudin est sed dui interdum rhoncus. 
 {{< /timelineItem >}}
@@ -40,11 +53,6 @@ With html code
 </ul>
 {{< /timelineItem >}}
 
-{{< timelineItem icon="star" header="Shortcodes" badge="AWESOME" >}}
-{{< gallery >}}
-  <img src="img/macos.png" class="grid-w33" />
-  <img src="img/ep.jpg" class="grid-w33" />
-{{< /gallery >}}
-{{< /timelineItem >}}
+
 
 {{< /timeline >}}
