@@ -1,0 +1,34 @@
+disabled = false
+locale = "en"
+label = "English"
+weight = 1
+title = "WAL 's Website"
+
+[params]
+  displayName = "EN"
+  isoCode = "en"
+  rtl = false
+  dateFormat = "2 January 2006"
+  # logo = "img/logo.png"
+  # secondaryLogo = "img/secondary-logo.png"
+  #description = "My awesome website"
+  copyright = "© 2026 Building..."
+
+[params.author]
+  name = "P1@YER"
+  email = "p14yer0x00@gmail.com"
+  image = "img/clover.png"
+  imageQuality = 96
+  headline = "Want To Say Hello"
+  bio = "A little bit about you"
+  links = [
+    { email = "mailto:p14yer0x00@gmail.com" },
+    { bilibili = "https://space.bilibili.com/1838519291" },
+    { redbook = "https://xhslink.com/m/3Exrrs8Jz4O" },
+    { 163music = "https://y.music.163.com/m/user?id=8327968559" },
+    { qq = "https://qm.qq.com/q/CF39jEbOb6" },
+    { wechat = "https://inhwuxtzwwyidklodzrk.supabase.co/storage/v1/object/public/music/wechat.png" },
+    { discord = "https://discord.gg/hdXWBcUG" },
+    { minecraft = "https://namemc.com/profile/GoodSunny.2" },
+
+  ]
