@@ -23,5 +23,5 @@ title = 'Hi, 第一个博客'
 ### 自己的期望
 本人的梦想是成为一个[**全栈开发者**](https://baike.baidu.com/item/%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88/12983270)(虽然现在还差很远(笑))
 
-
+目前在学习进阶*C++* -> Stanford大学的[CS106B/X: Programming Abstractions in C++](https://www.bilibili.com/video/BV1G7411k7jG)(BiliBili 2018 Winter)
 
