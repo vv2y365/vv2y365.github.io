@@ -2,8 +2,25 @@
 title: "Welcome"
 description: "这是往主页中添加内容的例子。"
 ---
-高中在读 欢迎来到我的网站！我很高兴你的来访
-Building 虽然现在还很简陋就是了
+
+{{< typeit >}}
+欢迎来到我的网站！我很高兴你的来访 正在建设中 虽然现在还很简陋就是了
+{{< /typeit >}}
+
+
+
+
+
+{{< gallery >}}
+  
+  <img src="img/xy.png" class="grid-w33" />
+  <img src="img/t.png" class="grid-w33" />
+  <img src="img/d.png" class="grid-w33" />
+  <img src="img/macos.png" class="grid-w33" />
+  <img src="img/steam.png" class="grid-w33" />
+  <img src="img/ep.jpg" class="grid-w33" />
+{{< /gallery >}}
+
 
 ***特别感谢赞助，他的支持***
 
@@ -23,36 +40,3 @@ Building 虽然现在还很简陋就是了
 {{< button href="/fun" target="_self" >}}
 💙 Become a Sponsor
 {{< /button >}}
-
-
-{{< timeline >}}
-
-{{< timelineItem icon="star" header="Shortcodes" badge="AWESOME" >}}
-{{< gallery >}}
-  
-  <img src="img/xy.png" class="grid-w33" />
-  <img src="img/t.png" class="grid-w33" />
-  <img src="img/d.png" class="grid-w33" />
-  <img src="img/macos.png" class="grid-w33" />
-  <img src="img/steam.png" class="grid-w33" />
-  <img src="img/ep.jpg" class="grid-w33" />
-{{< /gallery >}}
-{{< /timelineItem >}}
-
-{{< timelineItem icon="github" header="header" badge="badge test" subheader="subheader" >}}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non magna ex. Donec sollicitudin ut lorem quis lobortis. Nam ac ipsum libero. Sed a ex eget ipsum tincidunt venenatis quis sed nisl. Pellentesque sed urna vel odio consequat tincidunt id ut purus. Nam sollicitudin est sed dui interdum rhoncus. 
-{{< /timelineItem >}}
-
-
-{{< timelineItem icon="code" header="Another Awesome Header" badge="date - present" subheader="Awesome Subheader" >}}
-With html code
-<ul>
-  <li>Coffee</li>
-  <li>Tea</li>
-  <li>Milk</li>
-</ul>
-{{< /timelineItem >}}
-
-
-
-{{< /timeline >}}
