@@ -6,7 +6,11 @@ title = 'Hi, 第一个博客'
 
 # 自我介绍
 
-**你好👋**, 如你所见, 这是一位<img src="/img/p14yer.jpg" width="50%">社恐(有一点)高中生(马上就不是了 ><)的个人网站 博客
+**你好👋**, 如你所见, 这是一位
+
+<img src="https://inhwuxtzwwyidklodzrk.supabase.co/storage/v1/object/public/music/p14yer.png" class="grid-w33" width="50%" />
+
+社恐(有一点)高中生(马上就不是了 ><)的个人网站 博客
 
 能来到这里的人大概也清楚我是谁吧, 在这里我会把自己的**技术分享、生活**记录下来(虽然没人看)
 虽然不知道写什么好, 算了, 随便写点吧
