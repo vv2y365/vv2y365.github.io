@@ -1,29 +1,23 @@
 +++
 date = '2026-06-08T09:00:14+08:00'
 draft = false
-title = 'My First Post'
+title = 'Hi, 第一个博客'
 +++
 
-## Introduction
+# 自我介绍
 
-This is **bold** text, and this is *emphasized* text.
+**你好👋**, 如你所见, 这是一位<img src="/img/p14yer.jpg" width="50%">社恐(有一点)高中生(马上就不是了 ><)的个人网站 博客
 
-Visit the [Hugo](https://gohugo.io) website!
+能来到这里的人大概也清楚我是谁吧, 在这里我会把自己的**技术分享、生活**记录下来(虽然没人看)
+虽然不知道写什么好, 算了, 随便写点吧
+### 经常玩的在线游戏
+- Minecraft
+- ....好像没有了
 
-1
+我的[Steam](https://steamcommunity.com/id/p14yer)(<-click, 欢迎来一起游玩)
 
-1
+### 自己的期望
+本人的梦想是成为一个[**全栈开发者**](https://baike.baidu.com/item/%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88/12983270)(虽然现在还差很远(笑))
 
-1
 
-1
 
-1
-
-1
-
-1
-
-1
-
-1

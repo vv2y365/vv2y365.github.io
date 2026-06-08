@@ -1,0 +1,9 @@
+@font-face {
+    font-family: font;
+    src: url('/fonts/SF-Pro-Display-Regular.woff2');
+}
+
+html {
+    font-family: font;
+    font-size: 15pt;
+}
