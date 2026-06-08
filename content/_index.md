@@ -8,9 +8,6 @@ description: "这是往主页中添加内容的例子。"
 {{< /typeit >}}
 
 
-
-
-
 {{< gallery >}}
   
   <img src="img/xy.png" class="grid-w33" />
