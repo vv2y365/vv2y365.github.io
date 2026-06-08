@@ -1,6 +1,12 @@
 ---
 title: "Just kidding! ><"
-description: "这是往主页中添加内容的例子。"
+showDate: false
+showReadingTime: false
+showAuthor: false
+showTaxonomies: false
+showWordCount: false
+showBreadcrumbs: false
+replyByEmail: false
 ---
 
 {{< typeit 
