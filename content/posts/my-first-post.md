@@ -24,7 +24,6 @@ title = 'Hi, 第一个博客'
 
 <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="width:100%;max-width:660px;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/cn/song/%E5%A4%9C%E3%81%AB%E9%A7%86%E3%81%91%E3%82%8B/1490256995"></iframe>
 
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1409311773&auto=0&height=66"></iframe>
 
 ### 自己的期望
 本人的梦想是成为一个[**全栈开发者**](https://baike.baidu.com/item/%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88/12983270)(虽然现在还差很远(笑))
