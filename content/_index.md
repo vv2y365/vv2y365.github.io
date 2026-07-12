@@ -4,7 +4,7 @@ description: "这是往主页中添加内容的例子。"
 ---
 
 {{< typeit >}}
-欢迎来到我的网站！我很高兴你的来访 正在建设中 虽然现在还很简陋就是了
+THS
 {{< /typeit >}}
 
 <!-- <video controls="" autoplay="" name="media"><source src="https://inhwuxtzwwyidklodzrk.supabase.co/storage/v1/object/public/music/ssl.mp4" type="video/mp4"></video> -->

@@ -10,7 +10,7 @@ showPagination: false
 ---
 
 
-***特别感谢赞助，他的支持***
+***特别感谢他的赞助***
 
   
 <div class="flex flex-wrap justify-center gap-0 m-0 p-0 my-0 mb-0 mt-0" style="margin: 0 !important; padding: 0 !important;">
