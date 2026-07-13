@@ -1,5 +1,5 @@
 ---
-title: "Just kidding! ><"
+title: "A title"
 showDate: false
 showReadingTime: false
 showAuthor: false
@@ -10,11 +10,4 @@ showPagination: false
 replyByEmail: false
 ---
 
-{{< typeit 
-  tag=h3
-  speed=50
-  breakLines=false
-  loop=true
->}}
-Thanks sknahT ><
-{{< /typeit >}}
+# A words

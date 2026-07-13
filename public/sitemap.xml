@@ -27,6 +27,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>http://localhost:1313/memento/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/fun/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
