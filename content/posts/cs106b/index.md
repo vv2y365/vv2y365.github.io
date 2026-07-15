@@ -5,6 +5,13 @@ title = 'CS106B'
 +++
 # 0.有关CS106B
 CS106B 将带您熟悉 C++ 编程语言，并介绍递归、算法分析和数据抽象等高级编程技巧，探索经典的数据结构和算法，并让您有机会运用这些工具解决复杂问题 (注意:它不会教你基本语法, 在这之前, 你需要一点的编程经验)
+由于cs106B各个年份课程的开源程度不同，我们想要学习这门课程就需要结合不同年份的课程资源
+[Qt](https://www.qt.io/development/download-qt-installer-oss) qt6.11可用
+[StanfordLib 2021](https://github.com/MedivhGO/Stanford-CS106B/)
+[Lectures 2020summer](https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1242/lectures/)
+[Sections 2022summer](https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1228/about_section)
+[Assignments 2022winter](https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1224/about_assignments)
+[Exams 2022winter](https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1224/midterm_logistics)
 ![Roadmap](img/cs106bmap.png "Map")
 
 # 1.什么是抽象
@@ -152,5 +159,83 @@ tripleWeight(1.06);//别这么做!编译器出错 1.06是一个临时值，没�
 ```
 
 # 5.有序数据结构
+## Grid
+这是Stanford封装好的类 [Stanford Grid documentation](https://web.stanford.edu/dept/cs_edu/resources/cslib_docs/Grid)
+
+- 一个二维数组，具有**特定**的宽度和高度(注意:这里我们用**数组**而不是向量,因为它在创建的时候就确定了行数和列数，所以不像vector那样可以随意增加元素)
+
+![grid](img\grid.png)
+
+- 适用于电子表格、游戏棋盘等
+- 声明Grid的三种方法
+    ```cpp
+    Grid<type> gridName;
+    Grid<type> gridName(numRows, numCols);
+    Grid<type> gridName = {{a0, a1, a2}, {b0, b1, b2},...};
+    ```
+- 实用功能
+    ```cpp
+    grid.numRows() //返回网格（grid）的行数
+    grid.numCols() //返回网格（grid）的列数
+    grid[i][j] 选择网格中第 i 行、第 j 列 的元素。
+    grid.resize(rows, cols) //改变网格的尺寸(行数和列数),并将所有元素重新初始化为它们的默认值
+    grid.inBounds(row, col) //如果指定的 行(row),列(col)位置在网格范围内,返回true,否则返回false
+    ```
+- 如何遍历Grid
+```cpp
+void printGrid(Grid<char>& grid) {
+ for(int r = 0; r < grid.numRows(); r++) {
+     for(int c = 0; c < grid.numCols(); c++) {
+         cout << grid[r][c];
+     }
+     cout << endl;
+  }
+}
+
+Grid<char> word = {{'y', 'e'}, {'e', 'h'}, {'a', 'w'}};
+printGrid(word);
+```
+
+```console
+output:
+ye
+eh
+aw
+```
+
+![grid_access](img\grid_access.png)
+
+- 使用Grid时常见的陷阱
+    - 别忘了指定Grid中存储的数据类型
+    `Grid word; //NO!`
+    `Grid<char> word //YES~`
+    - 与vector和其他抽象数据类型(ADT)一样,当网格用作函数参数时,应该按引用传递`&`
+    - 使用网格索引时要注意变量的顺序! 建议使用`r`表示行,`c`表示列
+    - 与其他语言不同,您只能访问单元格(不能访问单个行) `grid[0]` → 这样做会导致错误
+
+- 战舰游戏网格系统
+![battleship](L:\source\mynewsite\content\posts\cs106b\img\battleship.png)
+
+# 6.Structs + GridLocation
+## 什么是struct
+C++中将不同类型的信息捆绑在一起的方法——类似于创建自定义数据结构
+## GridLocation结构体
+- Stanford C++库中预定义的结构体,可以更方便地存储网格位置
+```cpp
+struct GridLocation {
+    int row;    
+    int col;
+}                     //结构定义(可以是不同类型的成员)
+```
+
+- 要声明一个结构体，你可以分别给每个成员赋值，也可以在创建结构体时一次性赋值
+
+```cpp
+GridLocation origin = {0, 0}; 
+// or
+GridLocation origin;
+origin.row = 0;
+origin.col = 0; //您可以使用点号表示法访问结构体中的成员 成员名后面不需要括号
+```
 
 > NOT END
