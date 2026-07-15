@@ -187,7 +187,7 @@ tripleWeight(1.06);//别这么做!编译器出错 1.06是一个临时值，没�
     ```cpp
     grid.numRows() //返回网格（grid）的行数
     grid.numCols() //返回网格（grid）的列数
-    grid[i][j] 选择网格中第 i 行、第 j 列 的元素。
+    grid[i][j] //选择网格中第 i 行、第 j 列 的元素。
     grid.resize(rows, cols) //改变网格的尺寸(行数和列数),并将所有元素重新初始化为它们的默认值
     grid.inBounds(row, col) //如果指定的 行(row),列(col)位置在网格范围内,返回true,否则返回false
     ```
