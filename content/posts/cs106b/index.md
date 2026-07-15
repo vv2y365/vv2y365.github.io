@@ -5,13 +5,23 @@ title = 'CS106B'
 +++
 # 0.有关CS106B
 CS106B 将带您熟悉 C++ 编程语言，并介绍递归、算法分析和数据抽象等高级编程技巧，探索经典的数据结构和算法，并让您有机会运用这些工具解决复杂问题 (注意:它不会教你基本语法, 在这之前, 你需要一点的编程经验)
+
 由于cs106B各个年份课程的开源程度不同，我们想要学习这门课程就需要结合不同年份的课程资源
-[Qt](https://www.qt.io/development/download-qt-installer-oss) qt6.11可用
+
+![welcome](img\welcome.png "成功配置")
+
+[Qt](https://www.qt.io/development/download-qt-installer-oss) Qt6.11可用
+
 [StanfordLib 2021](https://github.com/MedivhGO/Stanford-CS106B/)
+
 [Lectures 2020summer](https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1242/lectures/)
+
 [Sections 2022summer](https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1228/about_section)
+
 [Assignments 2022winter](https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1224/about_assignments)
+
 [Exams 2022winter](https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1224/midterm_logistics)
+
 ![Roadmap](img/cs106bmap.png "Map")
 
 # 1.什么是抽象
@@ -207,14 +217,16 @@ aw
 
 - 使用Grid时常见的陷阱
     - 别忘了指定Grid中存储的数据类型
+
     `Grid word; //NO!`
+    
     `Grid<char> word //YES~`
     - 与vector和其他抽象数据类型(ADT)一样,当网格用作函数参数时,应该按引用传递`&`
     - 使用网格索引时要注意变量的顺序! 建议使用`r`表示行,`c`表示列
     - 与其他语言不同,您只能访问单元格(不能访问单个行) `grid[0]` → 这样做会导致错误
 
 - 战舰游戏网格系统
-![battleship](L:\source\mynewsite\content\posts\cs106b\img\battleship.png)
+![battleship](img\battleship.png)
 
 # 6.Structs + GridLocation
 ## 什么是struct
