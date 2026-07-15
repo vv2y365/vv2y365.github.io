@@ -32,19 +32,66 @@ CS106B 将带您熟悉 C++ 编程语言，并介绍递归、算法分析和数�
 例如:你用美团点外卖，只要选菜、下单、付款就行，不需要懂服务器、数据库、网络协议等怎么工作的
 
 # 2.在代码中使用抽象概念来构建数据
-1. ADT的定义(*Abstract Data Type*)
-ADT 是 “**你想让一个东西表现成什么样**，而**不是它内部怎么实现**”
-2. 界面和实现的分离
-实现于程序时，抽象数据类型只显现出其界面，并将实现加以隐藏。用户只需关心它的界面，而不是如何实现
-# 3.vector
+- ADT的定义(*Abstract Data Type*)
+ADT 是 “**你想让一个东西表现成什么样**，而**不是它内部怎么实现**” 常见的ADT: Vector,Queue,Stack
+
+- 功能和实现的分离
+实现于程序时，抽象数据类型只显现出其功能，并将实现加以隐藏 你只需关心它的功能，而不是如何实现，类似于可以不知道一些深奥的数学知识，但要会用它解决问题
+# 4.值传递与引用传递
+## 什么是值传递?
+当一个参数传递给函数时，新变量会在内存中存储传递值的副本
+```cpp
+void tripleWeight(double w) {
+ w *= 3; // 重量三倍
+}
+
+int main() {
+ double weight = 1.06;
+ tripleWeight(weight);
+ cout << weight << endl; //weigt仍是1.06
+}
+```
+<img src="img/pass_by_value.png" alt="pass_by_value" title="pass_by_value" style="zoom:50%;" />
+
+## 什么是引用传递?
+当向函数传递参数时，新变量会存储对传入值的引用，这允许您直接编辑原始值 在类型后面加上`&`
+```cpp
+void tripleWeight(double& weight_ref) {
+ weight_ref *= 3; // 重量三倍
+}
+
+int main() {
+ double weight = 1.06;
+ tripleWeight(weight);
+ cout << weight << endl; //weight会变为3.18, 但我们通常不会这样编写代码……
+} 
+```
+![pass_by_reference](img/pass_by_reference.png "pass_by_reference")
+## 何时不使用引用传递?
+- 如果我们总是使用引用，那么函数之间都可以互相修改对方的变量，程序的作用域会变得混乱
+- 当数据本身很小(即按值复制的成本很低)时，我们就不需要使用引用
+- 如果参数是引用,不能传入字面值
+
+ :x:**错误示例**
+```cpp
+void tripleWeight(double& weight_ref);
+...
+tripleWeight(1.06);//别这么做!编译器出错 1.06是一个临时值，没有实际存储位置，不能被引用修改
+```
+
+# 5.有序数据结构
+
+当说“无序”与“有序”时，我们特指数字排序
+
+## Vector
 - 从宏观层面来说，向量是相同类型元素的有序集合，其大小可以**增长或缩小** (注意:与数学向量不同)
 - 集合中的每个元素都有一个特定的位置, 或称索引
 - 向量中的所有元素必须是同一类型, 与其他编程语言不同，单个向量不能包含混合类型的元素
 - 向量在存储元素数量方面非常灵活, 可以轻松地添加和删除元素、查询当前包含的元素数量等
-## 基本向量运算
+### 基本向量运算
 - 创建
 `vector<int> vec;`
-![vec_creat](img/vec_creat.png "vec_creat")
+<img src="img/vec_creat.png" alt="vec_creat" title="vec_creat" style="zoom: 80%;" />
 
 - 元素添加
 
@@ -53,16 +100,18 @@ ADT 是 “**你想让一个东西表现成什么样**，而**不是它内部怎
 `vec.add(8);`
 
 `vec.add(15);`
-![vec_add](img/vec_add.png "vec_add")
+<img src="img/vec_add.png" alt="vec_add" title="vec_add" style="zoom: 80%;" />
 (注意：索引从`0`开始)
+
 - 创造 + 添加
 `vector<int> vec = {4, 8, 15};`
 - 访问元素
 `cout << vec[1] << endl;`
-(注意: `cout << vec[3] << endl;` 这样做会抛出错误! Vector会进行边界检查, 不允许访问**超出边界的元素**)![vec_accesserror](img/vec_accesserror.png "vec_accesserror")
+(注意: `cout << vec[3] << endl;` 这样做会抛出错误! Vector会进行边界检查, 不允许访问**超出边界的元素**)
+- <img src="img/vec_accesserror.png" alt="vec_accesserror" title="vec_accesserror" style="zoom: 80%;" />
 - 移除元素
 `vec.remove(0);`(注意: index与value不绑定)
-![vec_remove](img/vec_remove.png "vec_remove")
+<img src="img/vec_remove.png" alt="vec_remove" title="vec_remove" style="zoom: 80%;" />
 - 访问元素个数
   `cout << vec.size() << endl;`
 
@@ -107,7 +156,7 @@ ADT 是 “**你想让一个东西表现成什么样**，而**不是它内部怎
     - `vec.clear()`：清空向量中的所有元素
     - `vec.sort()`：按升序排列向量中的元素
       ```
-## vector示例
+### vector示例
 - 消除负数:给定一个整数向量，编写一个函数，通过改变向量中所有负值的符号，将它们转换为对应的正值，从而消除向量中的负数
 ```cpp
 void eliminateNegativity(vector<int> v)
@@ -127,48 +176,6 @@ int main()
   return 0;
 }
 ```
-# 4.值传递与引用传递
-## 什么是值传递?
-当一个参数传递给函数时，新变量会在内存中存储传递值的副本
-```cpp
-void tripleWeight(double w) {
- w *= 3; // 重量三倍
-}
-
-int main() {
- double weight = 1.06;
- tripleWeight(weight);
- cout << weight << endl; //weigt仍是1.06
-}
-```
-![pass_by_value](img/pass_by_value.png "pass_by_value")
-## 什么是引用传递?
-当向函数传递参数时，新变量会存储对传入值的引用，这允许您直接编辑原始值 在类型后面加上`&`
-```cpp
-void tripleWeight(double& weight_ref) {
- weight_ref *= 3; // 重量三倍
-}
-
-int main() {
- double weight = 1.06;
- tripleWeight(weight);
- cout << weight << endl; //weight会变为3.18, 但我们通常不会这样编写代码……
-} 
-```
-![pass_by_reference](img/pass_by_reference.png "pass_by_reference")
-## 何时不使用引用传递?
-- 如果我们总是使用引用，那么函数之间都可以互相修改对方的变量，程序的作用域会变得混乱
-- 当数据本身很小(即按值复制的成本很低)时，我们就不需要使用引用
-- 如果参数是引用,不能传入字面值
-
- :x:**错误示例**
-```cpp
-void tripleWeight(double& weight_ref);
-...
-tripleWeight(1.06);//别这么做!编译器出错 1.06是一个临时值，没有实际存储位置，不能被引用修改
-```
-
-# 5.有序数据结构
 ## Grid
 这是Stanford封装好的类 [Stanford Grid documentation](https://web.stanford.edu/dept/cs_edu/resources/cslib_docs/Grid)
 
@@ -227,13 +234,13 @@ aw
     - 与其他语言不同,您只能访问单元格(不能访问单个行) `grid[0]` → 这样做会导致错误
     
 - 战舰游戏网格系统
-![battleship](img/battleship.png)
+<img src="img/battleship.png" alt="battleship" style="zoom:50%;" />
 
-# 6.Structs + GridLocation
-## 什么是struct
+### Structs + GridLocation
+#### 什么是struct
 C++中将不同类型的信息捆绑在一起的方法——类似于创建自定义数据结构
-## GridLocation结构体
-- Stanford C++库中预定义的结构体,可以更方便地存储网格位置
+#### GridLocation结构体
+- Stanford C++库中预定义的结构体,可以更方便地存储网格位置 (就像一个坐标表示系统)
 ```cpp
 struct GridLocation {
     int row;    
@@ -250,5 +257,183 @@ GridLocation origin;
 origin.row = 0;
 origin.col = 0; //您可以使用点号表示法访问结构体中的成员 成员名后面不需要括号
 ```
+
+## Queue
+有Stanford封装好的类 [Stanford Grid documentation](https://web.stanford.edu/dept/cs_edu/resources/cslib_docs/Queue)
+### 什么是Queue?
+
+<img src="img/queue.png" alt="queue" style="zoom:50%;" />
+
+- 一种两端开放的线性数据结构
+- 一个有序列表，允许在称为后部(REAR)的一端执行插入操作，在称为前部(FRONT)的另一端执行删除操作
+- 先进先出(FIFO)列表 就像我们在食堂排队打饭一样 **F**irst person **I**n is the **F**irst person **O**ut
+
+### 实用功能
+
+```cpp
+enqueue(value)  // or add(value )入队
+dequeue()  // or remove() 离队 因为是先进先出 所以是移除首次添加的值
+peek()  // or front() 查看队首
+isEmpty() // 队列是否为空
+```
+
+### Queue示例
+
+```cpp
+Queue<int> line; // {}, empty queue
+line.enqueue(42); // {42}
+line.enqueue(-3); // {42, -3}
+line.enqueue(17); // {42, -3, 17}
+cout << line.dequeue() << endl; // 取出42 (队列目前为 {-3, 17})
+cout << line.peek() << endl; // 显示-3 (队列目前为 {-3, 17})
+cout << line.dequeue() << endl; // 取出-3 (队列目前为 {17})
+
+// or
+Queue<int> line = {42, -3, 17};
+```
+## Stack
+
+### 什么是Stack
+- 遵循后来居上，后进先出(LIFO)原则的抽象数据结构(ADT)  **L**ast item **I**n is the **F**irst one **O**ut
+
+<img src="img/stack.png" alt="stack" title="from hello-algo.com" style="zoom:80%;" />
+
+## Stack与Queue常见操作
+
+```cpp
+Stack<string> wordStack; // {}, empty stack
+wordStack.push("Kylie"); // {"Kylie"}
+wordStack.push("Nick"); // {"Kylie", "Nick"}
+wordStack.push("Trip"); // {"Kylie", "Nick", "Trip"}
+cout << wordStack.pop() << endl; // “Trip”
+cout << wordStack.peek() << endl; // "Nick"
+cout << wordStack.pop() << endl; // "Nick" (stack is {"Kylie"})
+// 直接表示
+Stack<string> wordStack = {"Kylie", "Nick", "Trip"};
+// 顶部 是最右边的元素Trip
+```
+- 清空队列/栈
+
+```cpp
+//取出队列中的元素
+Queue<int> queueIdiom1;
+// produce: {1, 2, 3, 4, 5, 6}
+for (int i = 1; i <= 6; i++) {
+  queueIdiom1.enqueue(i);
+}
+while (!queueIdiom1.isEmpty()) {
+  cout << queueIdiom1.dequeue() << " ";
+}
+cout << endl;
+//output: 1 2 3 4 5 6
+
+//取出栈中的元素
+Stack<int> stackIdiom1;
+// produce: {1, 2, 3, 4, 5, 6}
+for (int i = 1; i <= 6; i++) {
+  stackIdiom1.push(i);
+}
+while (!stackIdiom1.isEmpty()) {
+  cout << stackIdiom1.pop() << " ";
+}
+cout << endl;
+//output: 6 5 4 3 2 1
+```
+
+- 遍历和修改队列/栈 → 循环前只需计算一次大小
+
+```cpp
+//队列
+Queue<int> queueIdiom2 = {1,2,3,4,5,6};
+
+int origQSize = queueIdiom2.size();
+
+for (int i = 0; i < origQSize; i++) {
+   int value = queueIdiom2.dequeue();
+ // 只保留偶数
+   if (value % 2 == 0) {
+       queueIdiom2.enqueue(value);
+   }
+}
+cout << queueIdiom2 << endl;
+//output: 2, 4, 6
+
+//栈
+Stack<int> stackIdiom2 = {1,2,3,4,5,6};
+Stack<int> result;
+
+int origSSize = stackIdiom2.size();
+
+for (int i = 0; i < origSSize; i++) {
+  int value = stackIdiom2.pop();
+ // stackIdiom2的偶数添加到result
+  if (value % 2 == 0) {
+      result.push(value);
+  }
+}
+cout << result << endl;
+//output: 6, 4, 2
+```
+
+## Stack与Queue常见陷阱
+- 别在循环条件里用 `.size()` 因为每一次循环`size`都会改变! 在循环开始前，应用一个固定变量把初始大小存起来
+- 栈是一次性的! 队列有时候还可以提供只读的迭代器让我们从头扫到尾，但栈(Stack)不行！你想要遍历一个栈，唯一的办法就是不断地 `pop()` (弹出)它，而弹出来的元素就从原栈里消失了，在遍历前应先进行复制
+> NOT END
+
+## Stack与Queue的缺点
+- **没有随机访问** 
+
+  你想看队伍中间的人是谁？对不起，没门! 不像Vector,Grid那样可以使用索引(index):sweat_smile: 
+
+- **没有无副作用的遍历**
+
+  在不破坏它们的前提下，你无法把里面所有的元素扫一遍，你想看后面的元素，必须先把前面的元素全扔掉（出队/出栈）,遍历完了，这个容器也空了:neutral_face:
+
+- **没有简单的搜索方法**
+
+  你想在栈或队列里找一个特定的值?不行! 你只能苦哈哈地一个一个弹出来比对，找完了还得想办法把倒出来的元素再装回去:expressionless:
+
+# 6.挑选合适的ADT
+- Stacks **(LIFO 最后发生的，最先被处理)**
+
+  文本编辑器中的**撤销**
+
+  你的浏览器网页的**后退**
+
+- Queues **(FIFO 先来后到，排队办事)**
+
+  斯坦福计算机系著名的LaIR答疑预约系统->学生做实验遇到bug了，在系统上登记排队等助教，助教肯定去辅导**第一个**登记的学生
+
+  客服热线->哪个客户先打进电话，谁就排在队伍**最前面**，一旦有客服空出来，就先接待谁
+# 7.ADT目前为止总结
+
+| 类型 | 是否支持索引访问 | 示例 | 特点 |
+| --- | --- | --- | --- |
+| **可通过索引访问的有序ADT** | ✅ 可以 | Vector, Grid | 灵活访问，适合遍历和按位置组织数据 |
+| **无法通过索引访问元素的有序ADT** | ❌ 不可以 | Queue, Stack | 限制访问方式，适合特定顺序处理 |
+
+## 核心区别
+
+- **Vector / Grid**
+  - 关注 **数据在哪里（where）**
+  - 可以直接通过 index 找到元素
+  - 例如：
+    ```cpp
+    vector[3];  // 直接访问第4个元素
+    ```
+
+- **Queue / Stack**
+  - 关注 **数据处理顺序（how）**
+  - 不允许随意访问中间元素
+  - 例如：
+    ```text
+    Queue:
+    First in → First out
+    
+    Stack:
+    Last in → First out
+    ```
+# 8.无序数据结构
+## 为什么我们要使用无序ADT
 
 > NOT END
