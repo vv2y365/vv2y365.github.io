@@ -8,7 +8,7 @@ CS106B 将带您熟悉 C++ 编程语言，并介绍递归、算法分析和数�
 
 由于cs106B各个年份课程的开源程度不同，我们想要学习这门课程就需要结合不同年份的课程资源
 
-![welcome](img\welcome.png "成功配置")
+![welcome](img/welcome.png "成功配置")
 
 [Qt](https://www.qt.io/development/download-qt-installer-oss) Qt6.11可用
 
@@ -174,7 +174,7 @@ tripleWeight(1.06);//别这么做!编译器出错 1.06是一个临时值，没�
 
 - 一个二维数组，具有**特定**的宽度和高度(注意:这里我们用**数组**而不是向量,因为它在创建的时候就确定了行数和列数，所以不像vector那样可以随意增加元素)
 
-![grid](img\grid.png)
+![grid](img/grid.png)
 
 - 适用于电子表格、游戏棋盘等
 - 声明Grid的三种方法
@@ -213,7 +213,7 @@ eh
 aw
 ```
 
-![grid_access](img\grid_access.png)
+![grid_access](img/grid_access.png)
 
 - 使用Grid时常见的陷阱
     - 别忘了指定Grid中存储的数据类型
@@ -226,7 +226,7 @@ aw
     - 与其他语言不同,您只能访问单元格(不能访问单个行) `grid[0]` → 这样做会导致错误
 
 - 战舰游戏网格系统
-![battleship](img\battleship.png)
+![battleship](img/battleship.png)
 
 # 6.Structs + GridLocation
 ## 什么是struct
