@@ -2,7 +2,7 @@ disabled = false
 locale = "en"
 label = "English"
 weight = 1
-title = "W anttos A yhe L lo"
+title = " "
 
 [params]
   displayName = "EN"
@@ -15,12 +15,12 @@ title = "W anttos A yhe L lo"
   copyright = "© 2026 Building..."
 
 [params.author]
-  name = "P1@YER"
+  name = " "
   email = "mrwang150@qq.com"
   image = "img/ep.jpg"
   imageQuality = 96
-  headline = "Want To Say Hello, 🍀"
-  bio = "A Students"
+  headline = " "
+  bio = " "
   links = [
     # { email = "mailto:p14yer0x00@gmail.com" },
     { redbook = "https://xhslink.com/m/3Exrrs8Jz4O" },

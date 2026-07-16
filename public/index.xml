@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Welcome on W anttos A yhe L lo</title>
+    <title>Welcome on  </title>
     <link>http://localhost:1313/</link>
-    <description>Recent content in Welcome on W anttos A yhe L lo</description>
+    <description>Recent content in Welcome on  </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <managingEditor>mrwang150@qq.com (P1@YER)</managingEditor>
-    <webMaster>mrwang150@qq.com (P1@YER)</webMaster>
+    <managingEditor>mrwang150@qq.com ( )</managingEditor>
+    <webMaster>mrwang150@qq.com ( )</webMaster>
     <copyright>© 2026 Building...</copyright>
     <lastBuildDate>Sun, 12 Jul 2026 22:12:35 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,18 +15,8 @@
       <title>CS106B</title>
       <link>http://localhost:1313/posts/cs106b/</link>
       <pubDate>Sun, 12 Jul 2026 22:12:35 +0800</pubDate>
-      <author>mrwang150@qq.com (P1@YER)</author>
+      <author>mrwang150@qq.com ( )</author>
       <guid>http://localhost:1313/posts/cs106b/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Hi, 第一个博客</title>
-      <link>http://localhost:1313/posts/my-first-post/</link>
-      <pubDate>Mon, 08 Jun 2026 09:00:14 +0800</pubDate>
-      <author>mrwang150@qq.com (P1@YER)</author>
-      <guid>http://localhost:1313/posts/my-first-post/</guid>
       <description></description>
       
     </item>
@@ -35,7 +25,7 @@
       <title>A title</title>
       <link>http://localhost:1313/memento/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>mrwang150@qq.com (P1@YER)</author>
+      <author>mrwang150@qq.com ( )</author>
       <guid>http://localhost:1313/memento/</guid>
       <description></description>
       
@@ -45,7 +35,7 @@
       <title>Just kidding! &gt;&lt;</title>
       <link>http://localhost:1313/fun/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>mrwang150@qq.com (P1@YER)</author>
+      <author>mrwang150@qq.com ( )</author>
       <guid>http://localhost:1313/fun/</guid>
       <description></description>
       
@@ -55,7 +45,7 @@
       <title>Sponsors</title>
       <link>http://localhost:1313/wax/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>mrwang150@qq.com (P1@YER)</author>
+      <author>mrwang150@qq.com ( )</author>
       <guid>http://localhost:1313/wax/</guid>
       <description></description>
       

@@ -21,12 +21,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/posts/my-first-post/</loc>
-    <lastmod>2026-06-08T09:00:14+08:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>http://localhost:1313/memento/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
