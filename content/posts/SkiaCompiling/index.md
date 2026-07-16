@@ -41,7 +41,7 @@ python bin/fetch-ninja
 ## 编译Skia
 记录 VC目录: `X:\xxx\Microsoft Visual Studio\18\Community\VC`  (注意: 这里的18，老版本VC可能年号2022 2021等)
 
-与 `L:\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\`下的MSVC版本号: nn.nn.nnnnn
+与 `X:\xxx\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\`下的MSVC版本号: nn.nn.nnnnn
 
 编辑 `X:\xxx\skia\gn\BUILDCONFIG.gn`
 
