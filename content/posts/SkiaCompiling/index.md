@@ -1,11 +1,15 @@
 +++
 date = '2026-07-16T22:28:20+08:00'
-title = 'Skia在Windows环境下编译的流程'
+title = 'Skia编译流程'
 showTableOfContents = 'true'
 
 +++
 
 # [Skia](https://skia.org) Windows环境下编译
+## Skia介绍
+![skia](img/skia.png)
+
+一个开源的 2D 图形库，提供可在各种硬件和软件平台上运行的通用 API，Google Chrome 和 ChromeOS、Android、Flutter 以及许多其他产品的图形引擎，由 Google 赞助和管理，但任何人都可以根据 BSD 自由软件许可证使用它
 ## 前期准备工作
 ### 安装工具
 [depot_tools](http://www.chromium.org/developers/how-tos/install-depot-tools) 

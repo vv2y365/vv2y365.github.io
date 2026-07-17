@@ -32,7 +32,7 @@
     
   
   
-    <meta name="description" content="这是往主页中添加内容的例子。">
+    <meta name="description" content="一位高中生的个人网站 fun¹⁰ × int⁴⁰ = Ir²">
   
   
   
@@ -91,14 +91,14 @@
   <meta property="og:url" content="http://localhost:1313/">
 	<meta property="og:site_name" content=".">
 	<meta property="og:title" content="Welcome">
-	<meta property="og:description" content="这是往主页中添加内容的例子。">
+	<meta property="og:description" content="一位高中生的个人网站 fun¹⁰ × int⁴⁰ = Ir²">
 	<meta property="og:locale" content="en">
 	<meta property="og:type" content="website">
 
   
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Welcome">
-	<meta name="twitter:description" content="这是往主页中添加内容的例子。">
+	<meta name="twitter:description" content="一位高中生的个人网站 fun¹⁰ × int⁴⁰ = Ir²">
 
   
   
@@ -774,7 +774,7 @@
 </div>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    // 将公式拆分为正常文本和上标文本的组合
+    
     const formulaParts = [
         { text: "(Logic", isSup: false },
         { text: "0.5", isSup: true },
@@ -787,22 +787,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const el = document.getElementById("katex-text");
     const fragment = document.createDocumentFragment();
-    let charIndex = 0; // 用于累计动画延迟
+    let charIndex = 0; 
 
     formulaParts.forEach(part => {
-        // 如果是上标，先创建一个 sup 容器
         const container = part.isSup ? document.createElement("sup") : fragment;
 
         [...part.text].forEach(char => {
             const span = document.createElement("span");
             span.textContent = char;
-            // 每一个字符按顺序递增延迟
             span.style.animationDelay = `${charIndex * 60}ms`;
             container.appendChild(span);
             charIndex++;
         });
 
-        // 如果是上标，把 sup 容器塞进主片段里
         if (part.isSup) {
             fragment.appendChild(container);
         }
@@ -892,7 +889,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
         class="not-prose before:absolute before:inset-0 decoration-primary-500 dark:text-neutral text-xl font-bold text-neutral-800 hover:underline hover:underline-offset-2">
         <h2>
-          Skia在Windows环境下编译的流程
+          Skia编译流程
           
         </h2>
       </a>
@@ -946,7 +943,7 @@ document.addEventListener("DOMContentLoaded", () => {
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2026-07-16T22:28:20&#43;08:00">16 Jul 2026</time><span class="px-2 text-primary-500">&middot;</span><span>384 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
+      <time datetime="2026-07-16T22:28:20&#43;08:00">16 Jul 2026</time><span class="px-2 text-primary-500">&middot;</span><span>399 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
     
 
     

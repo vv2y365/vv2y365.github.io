@@ -12,7 +12,7 @@
     <lastBuildDate>Thu, 16 Jul 2026 22:28:20 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Skia在Windows环境下编译的流程</title>
+      <title>Skia编译流程</title>
       <link>http://localhost:1313/posts/skiacompiling/</link>
       <pubDate>Thu, 16 Jul 2026 22:28:20 +0800</pubDate>
       <author>mrwang150@qq.com ( )</author>
