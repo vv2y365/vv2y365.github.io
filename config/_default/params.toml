@@ -58,7 +58,7 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
 [homepage]
   layout = "background" # valid options: page, profile, hero, card, background, custom
   #homepageImage = "/img/background.svg" # used in: hero, and card
-  showRecent = true
+  showRecent = false
   showRecentItems = 5
   showMoreLink = false
   showMoreLinkDest = "/posts/"
@@ -106,7 +106,7 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   showHero = true
   heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
   layoutBackgroundBlur = true # only used when heroStyle equals background or thumbAndBackground
-  layoutBackgroundHeaderSpace = false # only used when heroStyle equals background
+  layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
   showBreadcrumbs = false
   showSummary = false
   showViews = false

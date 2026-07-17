@@ -5,7 +5,7 @@
 
 html {
     font-family: font;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 .chroma,
@@ -365,7 +365,7 @@ html.dark {
 
 @font-face {
     font-family: "KaTeXCustom";
-    src: url("/fonts/KaTeX_Math-Italic.ttf") format("truetype");
+    src: url("/fonts/KaTeX_Math-Italic.woff2") format("truetype");
     font-weight: normal;
     font-style: italic;
 }
