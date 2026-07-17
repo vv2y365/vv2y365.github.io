@@ -7,9 +7,11 @@ description: "这是往主页中添加内容的例子。"
     <span id="katex-text"></span>
 </div>
 
+
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    const text = "Code + Creativity = ∞";
+    const text = "(Logic⁰·⁵ × Chaos⁰·⁵​)ᶜᵒᵈᵉ\u00A0>\u00A0∞+1";
     const el = document.getElementById("katex-text");
 
     const fragment = document.createDocumentFragment();
