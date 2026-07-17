@@ -145,8 +145,8 @@
   <link
     type="text/css"
     rel="stylesheet"
-    href="/css/main.bundle.min.433b7b4f143ee840d62cdef9ace799a4cd9aa96ef190a491ef56e52da432218d07da19f8f5b0b86aa3db6d2fbd6790568e37837e987fc2f3e4222c88caa2310b.css"
-    integrity="sha512-Qzt7TxQ&#43;6EDWLN75rOeZpM2aqW7xkKSR71blLaQyIY0H2hn49bC4aqPbbS&#43;9Z5BWjjeDfph/wvPkIiyIyqIxCw==">
+    href="/css/main.bundle.min.eec51a5b55c72edf048767bb9cc5313aa76a9c2a50c8377b423ee8833f1d17e8253e9e8573d4e3e557aa57090832bcc8dca12f7585c0ffc8bd8bc36b3125896d.css"
+    integrity="sha512-7sUaW1XHLt8Eh2e7nMUxOqdqnCpQyDd7Qj7ogz8dF&#43;glPp6Fc9Tj5VeqVwkIMrzI3KEvdYXA/8i9i8NrMSWJbQ==">
 
   
   
@@ -204,9 +204,6 @@
 
 
 
-
-  
-  <script defer src="/lib/typeit/typeit.umd.0b0b4dac726624d4d4920b7a7b9a5466b2b0340759e8e557d78fc4a61f849f1fffed36ddb1d445014f4b936a3a46d3310b476c54958e73ecf5b53ba63c3dd01d.js" integrity="sha512-CwtNrHJmJNTUkgt6e5pUZrKwNAdZ6OVX14/Eph&#43;Enx//7TbdsdRFAU9Lk2o6RtMxC0dsVJWOc&#43;z1tTumPD3QHQ=="></script>
 
 
 
@@ -772,25 +769,28 @@
               </div>
             
           </div>
-          <section class="prose dark:prose-invert w-full"><div id="typeit-6fb22d3943ec7794c447a8e7c1bb77a4"></div>
-
+          <section class="prose dark:prose-invert w-full"><div class="katex-typing" aria-label="Code + Creativity = infinity">
+    <span id="katex-text"></span>
+</div>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      var strings = ["\r",".\r",""];
-      
-      new TypeIt("#typeit-6fb22d3943ec7794c447a8e7c1bb77a4", {
-        strings: strings,
-        speed:  100 ,
-        lifeLike:  false ,
-        startDelay:  0 ,
-        breakLines:  true ,
-        waitUntilVisible:  true ,
-        loop:  false 
-      }).go();
-    });
-</script>
+document.addEventListener("DOMContentLoaded", () => {
+    const text = "Code + Creativity = ∞";
+    const el = document.getElementById("katex-text");
 
-</section>
+    const fragment = document.createDocumentFragment();
+
+    [...text].forEach((char, i) => {
+        const span = document.createElement("span");
+
+        span.textContent = char;
+        span.style.animationDelay = `${i * 60}ms`;
+
+        fragment.appendChild(span);
+    });
+
+    el.appendChild(fragment);
+});
+</script></section>
         </div>
       </div>
     </div>
