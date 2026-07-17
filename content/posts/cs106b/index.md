@@ -434,5 +434,112 @@ cout << result << endl;
     ```
 # 8.无序数据结构
 ## 为什么我们要使用无序ADT
+因为有时，使用数字索引/排序并不是存储信息的最有效方式！
+## 无序数据示例
+- 网站独立访客数
+- 随机播放列表，无重复歌曲
+- 特定航班上的乘客及其护照号码
+- 一份包含所有食材及其用量的食谱
+- 社交媒体内容包含，文本,表情,图片，没有统一结构
+
+## Set
+### 什么是Set
+- 指不包含重复元素的元素的集合
+
+![set](img/set.png)
+
+- 集合比向量等有序数据结构速度更快——因为集合中没有重复项，所以查找数据的速度更快
+
+- 集合没有索引
+
+### 使用功能
+如需查看完整列表，请查看[Stanford libraries documentation](https://web.stanford.edu/dept/cs_edu/cppdoc/Set-class.html)
+
+```cpp
+add(value) //向集合中添加一个值。如果集合里已经有这个值，则不重复添加
+contains(value) //检查集合中是否包含某个值。包含返回 true，否则返回 false。
+remove(value) //集合中删除某个值。如果这个值不存在，什么也不做
+size() //返回集合中元素的数量
+isEmpty() //判断集合是否为空。为空返回 true，否则返回 false
+```
+### Set示例
+```cpp
+Set<string> friends;
+friends.add("nick");
+friends.add("kylie");
+friends.add("trip");
+// 也可以这样  Set<string> friends = {“nick”, “kylie”, “trip”};
+cout << boolalpha << friends.contains("voldemort") << noboolalpha
+    << endl;
+for(string person : friends) {
+    cout << person << endl;
+}
+```
+
+### Set运算
+`s1 == s2` 如果两个集合包含完全一样的元素，返回 `true` 与`s1 != s2`相对
+
+`s1 + s2` 并集
+
+`s1 * s2` 交集
+
+`s1 - s2` 差集 返回存在于`s1`中但不在`s2`中 的元素
+
+(注意: 元素全不重复)
+
+### 常见集合模式和陷阱
+- 使用for each循环遍历集合
+```cpp
+for (type currElem : set) {
+ // process elements one at a time
+}
+```
+
+- 任何试图对该集合进行索引的操作都不能使用
+
+`for (int i = 0;..) or set[i]`
+
+## Map
+### 什么是Map
+
+![map](img/map.png)
+
+- Map(映射 / 哈希表) 是一种存储“键值对（key/value pair）”的数据结构
+- 每个 key（键） 对应一个 `value`（值），通过 `key` 可以快速找到对应的 `value`
+
+### 实用功能
+
+```cpp
+m.clear() //清空 Map，删除所有键值对
+m.containsKey(key) //判断 Map 是否包含指定的键。包含返回 true，否则返回 false
+m[key] //or m.get(key) 获取指定 key 对应的 value，如果 key 不存在，返回 value 类型的默认值
+m.isEmpty() //判断 Map 是否为空。没有任何键值对返回 true
+m.keys() //返回 Map 中所有 key 的集合（Vector）
+m[key] = value //or m.put(key, value) 添加一个键值对，如果 key 已存在，则更新它对应的 value
+m.remove(key) //删除指定 key 的键值对，如果 key 不存在，不做任何操作
+m.size() //返回 Map 中键值对的数量
+m.values() //返回 Map 中所有 value 的集合（Vector）
+```
+### Map示例
+```cpp
+// 将字符串键映射到字符串值
+Map<string, string> phoneBook;
+
+//插入新值
+// key                value
+phoneBook["Jenny"] = "867-5309"; // or
+phoneBook.put("Jenny", "867-5309");
+
+//访问值
+string jennyNumber = phoneBook["Jenny"]; // or
+string jennyNumber = phoneBook.get("Jenny");
+cout << jennyNumber << endl;
+
+// 将字符串键映射到 Vector<double> 值
+Map<string, Vector<double>> accounts;
+```
+### 常见映射表模式和陷阱
+
+
 
 > NOT END
