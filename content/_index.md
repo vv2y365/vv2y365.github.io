@@ -2,7 +2,7 @@
 title: "Welcome"
 description: "一位高中生的个人网站 fun¹⁰ × int⁴⁰ = Ir²"
 ---
-<div class="katex-typing" aria-label="(Logic^0.5 × Chaos^0.5)^code > ∞+1">
+<div class="katex-typing" aria-label="(Logic^0.5 × Chaos^0.5)^code > ∞">
     <span id="katex-text"></span>
 </div>
 
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { text: "0.5", isSup: true },
         { text: ")", isSup: false },
         { text: "code", isSup: true },
-        { text: " > ∞+1", isSup: false }
+        { text: " > ∞", isSup: false }
     ];
 
     const el = document.getElementById("katex-text");
