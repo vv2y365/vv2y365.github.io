@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { text: "0.5", isSup: true },
         { text: ")", isSup: false },
         { text: "code", isSup: true },
-        { text: " > ∞+1", isSup: false }
+        { text: " > ∞", isSup: false }
     ];
 
     const el = document.getElementById("katex-text");
