@@ -2,7 +2,7 @@
 title: "Welcome"
 description: "一位高中生的个人网站 fun¹⁰ × int⁴⁰ = Ir²"
 ---
-<div class="katex-typing" aria-label="(Logic^0.5 × Chaos^0.5)^code > ∞+1">
+<div class="katex-typing" aria-label="(Logic^0.5 × Chaos^0.5)^code > ∞">
     <span id="katex-text"></span>
 </div>
 
