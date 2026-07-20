@@ -1,11 +1,11 @@
 +++
 date = '2026-07-19T16:38:15+08:00'
 draft = false
-title = 'Opengl画三角'
+title = 'Opengl绘制'
 +++
 
 
-# opengl 画三角
+# 使用opengl绘制图形
 
 设置顶点 -> 配置VAO VBO  -> 配置顶点着色器 片段着色器 -> 链接这几个个着色器 -> 绘制
 
