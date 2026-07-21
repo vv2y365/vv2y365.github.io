@@ -709,7 +709,229 @@ COLD -> CORD -> CARD -> WARD -> WARM
             - 复制当前路径，并将该邻居添加到路径末尾
             - 将这条新路径加入队列尾部，继续下一轮探索
 
-## NDS
-### 什么是NDS
+### BFS示例
+
+给你个
+
+```cpp
+ vector<string> maze = {
+        "S.....", // S为起点
+        ".###..", // .表示路 #表示障碍
+        "...#..", 
+        ".###..",
+        "....E." // E为目标点 计算最短要走几步
+    };
+```
+
+代码实现:
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <queue>
+using namespace std;
+
+struct node {
+    int x;
+    int y;
+    int step;
+    bool operator==(const node& other) {
+        return (other.x == x && y == other.y);
+    }
+};
+
+class bfs1 {
+public:
+    int bfs(vector<string> maze) {
+        //初始化
+        int n = maze.size();
+        int m = maze[0].size();
+        node s = {0, 0, 0};
+        node e = {4, 4, 0};
+        queue<node> q;
+        vector<vector<int>> visited(n, vector<int>(m, 0)); //搜索状态  未访问：0 已访问:1
+        visited[s.x][s.y] = true;
+        q.push(s); //添加起始位置坐标
+
+        while (!q.empty()) {
+            node cur = q.front(); //记录队列中第一个元素
+            q.pop();              //删除
+
+            if (cur == e)
+                return cur.step;
+
+            //方向变化量
+            int dx[4] = {-1, 1, 0, 0};
+            int dy[4] = {0, 0, -1, 1};
+
+            for (int i = 0; i < 4; i++) {
+                //新坐标
+                int nx = cur.x + dx[i];
+                int ny = cur.y + dy[i];
+
+                if (nx < 0 || nx >= n || ny < 0 || ny >=m) //越界访问
+                    continue;
+                if (maze[nx][ny] == '#') //遇到障碍
+                    continue;
+                if (visited[nx][ny]) //已访问过
+                    continue;
+
+                visited[nx][ny] = true; //访问记录
+                q.push({nx, ny, cur.step + 1}); //添加新坐标并让step+1
+            }
+        }
+        return -1; //如果队列为空
+    }
+};
+
+int main()
+{
+    vector<string> maze = {
+        "S.....",
+        ".###..",
+        "...#..",
+        ".###..",
+        "....E."
+    };
+
+    bfs1 test;
+    cout << test.bfs(maze);
+    return 0;
+}
+
+```
+
+
+## Nested ADT
+### 什么是Nested ADT
+一种数据结构里面包含另一种数据结构作为元素
+- 对象里面放对象
+- 哈希表里放列表
+- 链表里面放树
+
+### Nested ADT示例
+假设我们正在设计一个系统，用来记录动物园中**不同动物**的喂食时间
+
+- 需求：
+    - 如果我们知道动物的名字，我们需要能够快速查找该动物对应的喂食时间
+    - 我们需要能够为每一种动物存储多个喂食时间
+    - 喂食时间应该按照实际喂食发生的顺序进行存储
+- 数据结构声明
+
+`map<string, vector<string>> feedingTimes;`
+
+这里有两个层级
+- 动物名字 -> 喂食时间列表
+- 一个动物 -> 多个时间
+
+| 🐱         | 🐕          |
+| ----------- | ----------- |
+| 7:00        | 8:00        |
+| 12:00       | 11:00       |
+
+```text
+feedingTimes (map<string, vector<string>>)
+|
++-- ["Cat"]
+|      |
+|      +-- vector<string>
+|             |
+|             +-- [0] --> "07:00"
+|             |
+|             +-- [1] --> "12:00"
+|
++-- ["Dog"]
+       |
+       +-- vector<string>
+              |
+              +-- [0] --> "08:00"
+              |
+              +-- [1] --> "11:00"
+```
+
+```cpp
+feedingTimes["Cat"] = {"7:00", "9.00"};
+cout << feedingTimes["Cat"][0]; //输出一个string "7:00"
+```
+
+### "[]"操作符和"="赋值操作符的细节区别
+- 当你使用 [] 运算符访问 map 中的元素时，你得到的是 map 中该元素的**引用**
+
+假设
+
+```text
+feedingTimes (map<string, vector<string>>)
+|
++-- ["Cat"]
+|      |
+|      +-- vector<string>
+|             |
+|             +-- [0] --> "07:00"
+|             |
+|             +-- [1] --> "12:00"
+```
+执行`feedingTimes["Cat"].add("14:00");`
+
+会变成
+
+```text
+feedingTimes (map<string, vector<string>>)
+|
++-- ["Cat"]
+|      |
+|      +-- vector<string>
+|             |
+|             +-- [0] --> "07:00"
+|             |
+|             +-- [1] --> "12:00"
+|             |
+|             +-- [2] --> "14:00"
+```
+
+- 但是，当你使用"="把"[]"的结果赋值给一个变量时，你得到的是内部数据结构的一份复制
+
+执行`vector<string> times3 = feedingTimes["Cat"];`与`times3.add("14:00");`
+
+得到
+
+```text
+feedingTimes (map<string, vector<string>>)
+|
++-- ["Cat"]
+|      |
+|      +-- vector<string>
+|             |
+|             +-- [0] --> "07:00"
+|             |
+|             +-- [1] --> "12:00"
+ 
+
+times3 (vector<string>)
+  |
+  +-- [0] --> "07:00"
+  |
+  +-- [1] --> "12:00"
+  |
+  +-- [2] --> "14:00"
+```
+可以发现`feedingTimes["Cat"]`没有任何变化
+
+- 如何让修改保存
+  如果你选择把内部数据结构保存到变量中，那么必须显式重新赋值，才能让修改保存
+
+  重新放回去`feedingTimes["Cat"] = times3;`
+
+  或直接引用`vector<string>& times3 = feedingTimes["Cat"];`
+
+> 这点非常重要，因为很多程序bug都来自**以为改了原件，实际上只改了副本**
+
+### Nested ADT总结
+嵌套 ADT 很强大，可以表达复杂现实数据；但也很容易出错，因为多层结构增加理解成本，而 C++ 中引用和复制机制会影响数据是否真正被修改
+
+# 10.大O和算法分析
+## 什么是O
+
+![bigO](img/bigO.png)
+
 
 > NOT END
