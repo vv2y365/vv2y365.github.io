@@ -7,7 +7,7 @@
 
 colorScheme = "noir"
 defaultAppearance = "light" # valid options: light or dark
-autoSwitchAppearance = false
+autoSwitchAppearance = true
 
 enableA11y = false
 enableSearch = true
