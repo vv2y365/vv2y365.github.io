@@ -1282,4 +1282,77 @@ string fan(string str)
         +-- 更小的自己
 ```
 
+# 13.高级递归
+## 迭代+递归
+- 在同一个函数中混合使用迭代和递归是完全合理的
+- 递归并不意味着没有迭代，它只是意味着通过解决同一个问题的较小副本来解决同一个问题
+- 迭代和递归结合起来会非常强大
+## 为什么我们使用递归?
+- 优雅
+    它使我们能够用非常简洁的代码解决问题
+- 高效
+    使我们能够在解决问题时获得更好的运行时间
+- 动态
+    它使我们能够解决那些难以通过迭代解决的问题
+##  一个绝妙的例子:汉诺塔
+![fractals4](img/fractals4.png)
+
+如果我们再加入第4个磁盘呢
+
+![fractals5](img/fractals5.png)
+
+- 我们首先要想办法把最大的圆盘移到目标位置
+- 然后需要将中间三块板从辅助区域移动到目标区域
+
+一个高效的例子：二分查找
+
+在已排序列表中查找数字89
+
+想法一：我们可以按顺序遍历每个元素，进行线性搜索
+
+我们能否做得更好？我们能否利用数据的结构优势？
+(注意：**集合和映射**实际上并**不使用排序列表来存储信息**，但搜索排序数据的总体思路是类似的)
+
+想法二：二分查找
+
+每一步都剔除一半的数据
+
+递归定义二分查找
+
+- 算法：检查中间元素 `(startIndex + endIndex) / 2`
+    如果中间元素大于所需值，则删除右半部分数据并重复上述步骤
+    如果中间元素小于所需值，则删除数据左半部分并重复操作
+
+![fractals8](img/fractals8.png)
+
+- 递归情况
+    - 中间的元素太小 → 二分查找（数据右半部分
+    - 中间元素过大 → 二分查找（数据左半部分）
+- 基本情况
+    - 中间的元素 `==` 所需元素
+    - 所查元素不在数据中
+
+```cpp
+// 内部辅助函数(实际负责二分查找)
+int binarySearchHelper(const vector<int>& v, int targetVal, int left, int right) {
+    if (left > right) return -1; //Base cases
+
+    int mid = left + (right - left) / 2;
+
+    if (v[mid] == targetVal) return mid; //Base cases
+    if (v[mid] > targetVal)  return binarySearchHelper(v, targetVal, left, mid - 1);
+    return binarySearchHelper(v, targetVal, mid + 1, right); //Recursive cases
+}
+
+// 外部主函数(自动获取 vector 的首尾索引)
+int binarySearch(vector<int>& v, int targetVal) {
+    if (v.empty()) return -1; //Base cases
+    return binarySearchHelper(v, targetVal, 0, v.size() - 1); //Recursive cases
+}
+```
+
+大多数情况下，分而治之（\(O(log n)\) ）会比线性运行（\(O(n)\)）更快
+
+
 >NOT END
+
