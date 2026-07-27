@@ -26,6 +26,9 @@ CS106B 将带您熟悉 C++ 编程语言，并介绍递归、算法分析和数�
 ![Roadmap](img/cs106bmap.png "Map")
 
 # 1.什么是抽象
+
+从具体事物提取共同结构
+
 抽象就是只告诉你这个东西能干什么，但不告诉你它到底是怎么干的, 抽象 = 隐藏**怎么做**，只暴露**做什么** 
 *Design that hides the details of how something works while still allowing the user to access complex functionality*
 
@@ -1570,14 +1573,75 @@ TTT
 
 回溯递归
 
+- 递归+枚举
 - 通过每一步做出多个选择，使用多次递归调用来构建所有可能的解决方案
 - 初始递归调用通常从一个**空**的方案开始
 - 每一次递归调用代表*我现在做一个选择，然后继续探索这个选择产生的后果*
 - 当达到叶节点时，当前路径就是一个可能的**完整解决方案**
 
-# 14.递归回溯与枚举
+# 14.回溯递归与枚举
+- 利用回溯递归，我们可以解决以下三大类问题：
+    - 生成问题的所有可能解或计算问题可能解的总数
+    - 找到问题的一个特定解或证明该解的存在
+    - 找到给定问题的最优解
+- 我们可以解决的具体问题有很多很多
+生成排列、生成子集、生成组合等等
 
+## 游戏Jumble
+游戏给你一些被打乱的单词
+你需要重新排列字母，猜出原来的单词
 
+![jumble](img/jumble.png)
+
+## 排列
+- 一个序列的排列是指一个序列，其元素与原序列相同，但顺序可能不同
+- 我们可以把排列看作抛硬币序列的延伸，与只有正面和反面两种固定结果不同
+    -与其说是只有 2 个固定选项（正面和反面），不如说我们原始序列的组成部分定义了我们可以用来构建新序列的选项 
+
+*我们的排列决策树由什么定义？*
+- 每一步（树的每一层）的**决策**
+接下来要添加到排列中的字母是什么？
+- 每个决策点的**选项**（每个节点的分支）
+    - 对于尚未选择的剩余元素，每个元素都有一个选项 
+    - 注意：树的每一层选项数量都不同
+- 我们沿途需要存储的信息
+    - 你目前构建的排列组合
+    - 原始序列中剩余的元素
+
+![cat](img/cat.png)
+
+```cpp
+void listPermutationsHelper(string remaining, string soFar)
+{
+  if (remaining.empty())
+    cout << soFar <<endl;
+  else
+  {
+    for (int i = 0; i < remaining.length(); i++)
+    {
+      char nextLetter = remaining[i];
+      string rest = remaining.substr(0, i) + remaining.substr(i + 1);
+      listPermutationsHelper(rest, soFar + nextLetter);
+    }
+
+  }
+}
+
+void listPermutations(string s)
+{
+  listPermutationsHelper(s, "");
+}
+```
+
+\(Permutations(S)=x∈S⋃x+Permutations(S−{x})\)
+
+一个集合的所有排列 = 选择其中一个元素作为开头 + 对剩余元素求排列
+
+## 要点
+- 我们用来生成排列的回溯递归中的“一般‘选择 / 探索 / 不选择’模式”的具体模型可以理解为“复制、编辑、递归”
+- 在回溯递归的每一步，记录我们到目前为止做过的决定以及还有哪些决定需要做很重要
+- 回溯递归在每一层可能有不同的分支因子
+- 常见做法是使用辅助函数和初始为空的参数，然后逐步构建
 
 >NOT END
 
