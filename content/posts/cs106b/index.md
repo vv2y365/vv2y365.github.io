@@ -1579,7 +1579,7 @@ TTT
 - 每一次递归调用代表*我现在做一个选择，然后继续探索这个选择产生的后果*
 - 当达到叶节点时，当前路径就是一个可能的**完整解决方案**
 
-# 14.回溯递归与排列
+# 14.回溯递归与枚举
 - 利用回溯递归，我们可以解决以下三大类问题：
     - 生成问题的所有可能解或计算问题可能解的总数
     - 找到问题的一个特定解或证明该解的存在
@@ -1637,11 +1637,192 @@ void listPermutations(string s)
 
 一个集合的所有排列 = 选择其中一个元素作为开头 + 对剩余元素求排列
 
-## 要点
+## 子集
+给定一群人，假设我们想要生成这些人的所有可能团队或子集
+
+![subset](img/subset.png)
+
+对于生成子集（以及思考决策）的计算机来说，我们可能会注意到另一种模式……
+
+一半的子集包含“Nick”，一半的子集包含“Kylie”，一半的子集包含“Trip”，同时包含“Trip”和“Nick”的子集中有一半包含“Kylie”🧐
+
+*我们的子集决策树定义了什么？*
+
+- 每一步（树的每一层）的决策是：是否将给定的元素包含在我们的子集中？
+- 每个决策的选项（每个节点的分支）
+    - 包含元素
+    - 不包含元素
+- 我们需要存储的信息
+    - 目前构建的集合
+    - 原始集合中剩余的元素
+
+![subset2](img/subset2.png)
+
+```cpp
+void printsubset(vector<string> team)
+{
+  for (int i =0 ; i < team.size(); i++)
+  {
+    cout << team[i] << endl;
+  }
+  cout << endl;
+}
+
+void generateTeams(vector<string>& people, vector<string>& team, int index)
+{
+  if (index == people.size())
+  {
+    printsubset(team);
+    return;
+  }
+
+    // 选择当前人
+  team.push_back(people[index]);
+  generateTeams(people, team, index + 1);
+    
+    // 不选择当前人
+  team.pop_back();
+  generateTeams(people, team, index + 1);
+}
+
+void generateTeamsHelper(vector<string> people)
+{
+  vector<string> team;
+  generateTeams(people, team, 0);
+}
+
+int main()
+{
+
+  vector<string> people = {"Nick", "Kylie", "Trip"};
+  generateTeamsHelper(people);
+  return 0;
+}
+```
+
+### 要点
 - 我们用来生成排列的回溯递归中的“一般‘选择 / 探索 / 不选择’模式”的具体模型可以理解为“复制、编辑、递归”
 - 在回溯递归的每一步，记录我们到目前为止做过的决定以及还有哪些决定需要做很重要
 - 回溯递归在每一层可能有不同的分支因子
 - 常见做法是使用辅助函数和初始为空的参数，然后逐步构建
+
+### 特殊子集
+*Nick, Kylie, Trip*
+
+三人都有一个偏见值 `vector<int> bias = {3, -2, -1};` 要求: 输出偏见值总和为`0`的子集
+
+在上个例子中 基本情况下我们做的是打印所有的子集，如果我们只打印符合条件的子集不就行了
+
+```cpp
+void generateTeams(vector<int>& people, vector<int>& team, int index, int currentSum)
+{
+  if (index == people.size())
+  {
+    if (currentSum == 0)
+    {
+      printsubst(team);
+    }
+
+    return;
+  }
+
+  team.push_back(people[index]); //选择
+  generateTeams(people, team, index + 1, currentSum + people[index]);
+  team.pop_back(); //回退
+  generateTeams(people, team, index + 1, currentSum); //不选择
+}
+```
+
+## 迷宫
+给你一个迷宫使用递归找到它的一个正确路径并打印
+
+```cpp
+vector<string> maze = {
+    "#######",
+    "#S#  E#",
+    "# # # #",
+    "#   # #",
+    "#######"
+```
+
+什么定义了我们的迷宫决策树
+- 每一步的决策（树的每一层）
+    - 走左,走右,走上,走下
+- 每个决策的选项（节点的分支）
+    - 在地图范围内
+    - 不是墙
+    - 没有访问过
+- 递归过程中需要保存的信息
+     - 已经走过的路径
+     - 哪些地方访问过
+     - 当前所在位置
+
+```cpp
+bool solveMaze(vector<string>& maze, int row, int col, vector<pair<int, int>>& path, vector<vector<bool>>& visited)
+{
+  if (maze[row][col] == 'E') //基本情况
+  {
+    path.push_back({row,col}); //记录正确路径
+    return true;
+  }
+
+  visited[row][col] = true; //标记访问过的地方
+  path.push_back({row, col}); //添加路径
+
+  int dr[4] = {-1, 1, 0, 0};// 四个方向
+  int dc[4] = { 0, 0,-1, 1};
+
+  for (int i = 0; i < 4; i++) //循环四个方向
+  {
+    int nr = row + dr[i]; //下一步的位置
+    int nc = col + dc[i];
+
+    if (nr >= 0 && nr < maze.size() && nc >= 0 && nc < maze[0].size() && maze[nr][nc] != '#' && !visited[nr][nc]) //下一步位置是否可走
+    {
+      //新一轮 如果true则找到终点 如果false则继续for循环 直到所有路径失败则返回上一个栈帧个false 让它尝试其他格子的四个方向 
+      if (solveMaze(maze, nr, nc, path, visited))
+      {
+        return true;
+      }
+    // else
+    //   return false 错误 这样是给第一个solveMaz false
+    }
+  }
+  path.pop_back();
+  return false; //这个false是给 上一个栈帧 也就是上面的if()里的solveMaze 不是第一个solveMaze
+}
+
+int main()
+{
+  vector<string> maze = {
+    "#######",
+    "#S#  E#",
+    "# # # #",
+    "#   # #",
+    "#######"
+};
+  vector<pair<int, int>> path;
+  vector<vector<bool>> visited(maze.size(), vector<bool>(maze[0].size(), false));
+
+  if(solveMaze(maze,1,1,path,visited))
+  {
+    for(auto p:path)
+    {
+      cout << "("
+           << p.first
+           << ","
+           << p.second
+           << ")"
+           << endl;
+    }
+  }
+  else
+  {
+    cout << "No path";
+  }
+  return 0;
+}
+```
 
 >NOT END
 
