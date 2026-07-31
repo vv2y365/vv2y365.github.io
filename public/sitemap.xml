@@ -3,47 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>http://localhost:6717/posts/opengl/</loc>
+    <loc>http://localhost:5315/posts/opengl/</loc>
     <lastmod>2026-07-19T16:38:15+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:6717/posts/</loc>
+    <loc>http://localhost:5315/posts/</loc>
     <lastmod>2026-07-19T16:38:15+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:6717/</loc>
+    <loc>http://localhost:5315/</loc>
     <lastmod>2026-07-19T16:38:15+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:6717/posts/skiacompiling/</loc>
+    <loc>http://localhost:5315/posts/skiacompiling/</loc>
     <lastmod>2026-07-16T22:28:20+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:6717/posts/cs106b/</loc>
+    <loc>http://localhost:5315/posts/cs106b/</loc>
     <lastmod>2026-07-12T22:12:35+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:6717/memento/</loc>
+    <loc>http://localhost:5315/memento/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:6717/fun/</loc>
+    <loc>http://localhost:5315/fun/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:6717/wax/</loc>
+    <loc>http://localhost:5315/wax/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
