@@ -2015,7 +2015,7 @@ int main()
 
 ## 递归优化
 
-### "Hard" Problems
+### Hard Problems
 - 计算机科学中有很多不同类别的问题都被认为是“难以”解决的
      - 正式来说，这些问题被称为“*NP难题*” 选修*CS103*课程可以了解更多！
 - 对于这类问题，目前尚无已知的“好”或“高效”的方法来找到问题的最佳解决方案，唯一已知的方法是尝试所有可能的解决方案，然后选择最佳方案 
@@ -2044,3 +2044,217 @@ int main()
     - 目前为止的总价值
     - 剩余的可选物品
     - 背包的剩余容量（重量）
+
+```cpp
+targetWeight = 10; //背包容量
+
+struct BackpackItem
+{
+  string name;
+  int value; //生存价值
+  int weight; //重量
+};
+
+ vector<BackpackItem> items = {
+    {"Water", 10, 5},
+    {"Knife", 6, 3},
+    {"Food", 8, 4},
+    {"Compass", 4, 2},
+    {"Tent", 12, 7}
+  };
+```
+
+`int fillBackpack(vector<BackpackItem>& items, int targetWeight);`
+
+假设我们定义了一个自定义的 BackpackItem 结构体，它包含物品的生存值（int）和重量（int）
+
+我们需要返回在 `targetWeight` 下，所有物品组合所能达到的最大值 
+
+我们需要一个辅助函数 
+
+`int fillBackpackHelper (vector<BackpackItem>& items, int capacityRemaining, int curValue, int index); `
+
+为了提高效率，我们将使用索引来跟踪 `items` 中我们已经查看过的项
+
+伪代码
+
+- 递归情况：
+    - 根据索引选择一个未考虑的物品
+    - 递归地计算包含和不包含该物品时的值
+    - 返回较高的值
+- 基本情况：
+    - 背包容量已满 → 返回 0（重量小于等于 5 时，这不是有效的组合）
+    - 没有更多物品可供选择 → curValue
+
+```cpp
+struct BackpackItem
+{
+  string name;
+  int value; // 生存价值
+  int weight; // 重量
+};
+
+int fillBackpackHelper(vector<BackpackItem> &items, int capacityRemaining,
+                       int curValue, int index)
+{
+  if (index == items.size() || capacityRemaining == 0) // 基本情况
+  {
+    return curValue;
+  }
+
+  // 不选择 without得到的“不选择当前物品后,下面整棵子树能得到的最大价值”
+  int without =
+      fillBackpackHelper(items, capacityRemaining, curValue, index + 1);
+
+  // 选择 with得到的是“选择当前物品后,下面整棵子树能得到的最大价值”
+  int with = curValue;
+  if (items[index].weight <= capacityRemaining)
+  {
+    with = fillBackpackHelper(items, capacityRemaining - items[index].weight,
+                              curValue + items[index].value, index + 1);
+  }
+  else
+  {
+    with = 0;
+  }
+  return max(without, with);
+}
+
+int fillBackpack(vector<BackpackItem> &items, int targetWeight)
+{
+  return fillBackpackHelper(items, targetWeight, 0, 0);
+}
+
+int main()
+{
+
+  vector<BackpackItem> items = {{"Water", 10, 5},
+                                {"Knife", 6, 3},
+                                {"Food", 8, 4},
+                                {"Compass", 4, 2},
+                                {"Tent", 12, 7}};
+  cout << fillBackpack(items, 10);
+  return 0;
+}
+```
+
+另一种算法*DP*(可防止重复计算)
+
+```cpp
+int dfs(vector<BackpackItem>& items, int cap, int index, vector<vector<int>> memo)
+{
+  if (index == items.size() || cap == 0) //基本情况
+    return 0;
+  if (memo[index][cap] != -1) //备忘录 如果再次出现相同情况直接返回之前算过的
+    return memo[index][cap];
+
+  int without = dfs(items, cap, index + 1, memo); //选择
+
+  int with = 0;
+  if (items[index].weight <= cap) //不选择
+  {
+    with = items[index].value + dfs(items, cap - items[index].weight, index + 1, memo);
+  }
+
+  memo[index][cap] = max(with, without);
+  return memo[index][cap];
+
+}
+
+int fun(vector<BackpackItem> items, int tw)
+{
+  vector<vector<int>> memo(items.size(), vector<int>(tw + 1, -1)); //都初始化为 -1
+  return dfs(items, tw, 0, memo);
+}
+```
+
+## 关于递归的结语
+
+现在你知道如何利用递归从不同的角度看待问题，从而找到简洁优雅的解决方案
+
+你已经了解了如何使用递归回溯来枚举某种类型的所有对象，你可以利用它来找到问题的最佳解决方案
+
+你已经了解了如何使用递归回溯来确定某件事是否可行，如果可行，则找到实现它的方法
+
+***恭喜你走到这一步***
+
+两种类型的递归
+
+| 基础递归 | 回溯递归 |
+|---|---|
+| 一个重复执行的任务，在递归调用栈返回时逐步构建解决方案 | 通过每一步的多个递归调用，构建大量可能的解决方案 |
+| 最终的 base case（终止条件）定义了方案的初始种子，每次递归调用都会为解决方案贡献一部分 | 初始递归调用通常携带一个“空”的解决方案作为开始 |
+| 初始调用递归函数会直接产生最终解决方案 | 每到达一个 base case，都代表一个可能的解决方案 |
+
+---
+
+回溯递归：探索大量可能的解决方案
+
+整体思想：*choose / explore / unchoose*
+
+---
+
+### 回溯的两种实现方式
+
+| 方法 | 特点 |
+|---|---|
+| Choose → Explore → Undo | - 通常使用引用传递（pass by reference）<br>- 适用于大型数据结构<br>- 需要显式执行 unchoose（撤销之前对数据结构的修改）<br>- 例：生成子集（subsets），通过引用传递集合来跟踪当前子集 |
+| Copy → Edit → Explore | - 通常使用值传递（pass by value）<br>- 当数据规模较小时可以使用<br>- 不需要显式 unchoose，因为复制本身实现了撤销<br>- 例：逐步构造字符串 |
+
+---
+
+### 回溯的三种应用场景
+
+| 类型 | 描述 |
+|---|---|
+| 1. 生成/统计所有解决方案 | 枚举所有可能情况，例如生成所有组合、排列、子集 |
+| 2. 找到一个解决方案（或证明存在） | 找到满足条件的一个答案，例如迷宫路径 |
+| 3. 找到最优解决方案 | 在所有可能方案中选择最佳方案，例如最大价值背包 |
+
+---
+
+### 回溯常见问题类型
+
+- 排列
+- 子集
+- 组合
+- 等等
+
+---
+
+### 设计回溯策略时需要问自己的问题
+
+- 我的决策树是什么样的？
+  - 每一步有哪些选择？
+  - 需要记录哪些信息？
+
+- 我的 base case 和递归情况是什么？
+
+- 提供的函数原型和要求是什么？
+  - 是否需要额外的 helper 辅助函数？
+
+- 我们是否关心到达解决方案所经过的路径？
+  - 是否需要记录选择过程？
+
+- 这个问题属于哪一种回溯应用？
+  - 生成/统计所有方案？
+  - 找到一个方案？
+  - 找到最佳方案？
+
+- 我们返回的解决方案是什么？
+  - 布尔值
+  - 最终结果
+  - 一组结果
+  - 等等
+
+- 我们正在构建什么“可能性集合”来寻找答案？
+  - 子集
+  - 排列
+  - 组合
+  - 或其他结构？
+
+# 16. 面向对象编程
+
+![oop](img/oop.png)
+
+> NOT END
