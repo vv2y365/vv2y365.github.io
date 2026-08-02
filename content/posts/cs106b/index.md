@@ -2257,4 +2257,151 @@ int fun(vector<BackpackItem> items, int tw)
 
 ![oop](img/oop.png)
 
+## 重新审视抽象
+
+![oop2](img/oop2.png)
+
+![oop3](img/oop3.png)
+
+抽象定义
+
+这种设计隐藏了功能实现的细节，同时仍然允许用户访问复杂的功能
+
+在*C++*中如何实现这一点？
+
+使用类(class)
+
+## 什么是类
+class定义了一种新的数据类型，供我们的程序使用(这听起来很耳熟)
+
+还记得struct吗
+
+```cpp
+struct BackpackItem {
+   int survivalValue;
+   int weight;
+};
+struct Juror {
+   string name;
+   int bias;
+};
+```
+
+struct是*C++*中捆绑不同类型信息的一种方式，类似于创建自定义数据结构
+
+*那么类和结构体有什么区别呢？*
+
+- 结构体和类之间的唯一区别在于封装的默认设置
+    - 结构体默认使用公共成员（可在类外部访问）
+    - 类默认使用私有成员（仅在类实现内部可访问）
+
+
+- 我们已经见过的类示例：vector、map、stack、queue (具体来说是类模板)
+- 每个类都包含两个部分：
+    - 一个**接口**，用于指定可以对类的实例执行哪些操作（这定义了抽象边界）
+    - 指定如何执行那些操作的**实现**
+
+### 什么是封装
+将相关信息和相关功能组合成一个单元，并确定该信息的访问途径
+
+另一种思考类的方式
+
+- 一种 C++ 对象 设计蓝图
+
+![blueprint](img/blueprint.png)
+
+- 该蓝图描述了一个通用结构，我们可以使用此结构创建类的具体实例(用它来建房子)
+
+### 什么是实例
+当我们创建一个属于我们新类型的对象时，我们称之为创建我们类的实例
+
+`vector<inr> vec;` 创建 vector 类的一个实例（即vector类型的对象）
+
+## 我们如何设计 C++ 类？
+三个主要部分
+- 成员变量
+    - 这些是存储在类中的变量
+    - **通常**无法在类实现之外访问
+- 成员函数（方法）
+    - 可以对**对象**调用的函数
+    - 例如 `vec.push_back()、vec.size()、vec.pop_back()` 等
+- 构造函数
+    - 创建对象时调用
+    - `Vector<int> vec`
+
+我们必须明确的三个部分：
+- 成员变量：这种新的变量类型由哪些子变量构成？
+- 成员函数：可以对这种类型的变量调用哪些函数？
+- 造函数：当您创建此类型的新实例时要发生什么？
+
+一般来说，类对于帮助我们处理复杂的程序非常有用，因为在复杂的程序中，信息可以被分组到对象中
+
+随机袋
+- 随机袋是一种类似于stack或queue的数据结构。它支持两种操作：
+    - add 函数会将一个元素放入随机袋中
+    - remove random 函数会返回并从袋中移除一个随机元素
+- 随机包装袋有多种用途：
+    - 更简单些：洗一副扑克牌
+    - 更高级的应用：生成艺术作品、设计迷宫以及训练自动驾驶汽车停车和变换车道
+- 让我们来创建我们自己的自定义 RandomBag 类型吧！
+
+## 创建类
+- 在 C++ 中定义一个类**通常**需要两个步骤：
+    - 创建一个头文件（通常以 `.h` 为后缀），描述该类可以执行哪些操作以及它需要哪些内部状态
+    - 创建一个实现文件（通常以 `.cpp` 为后缀），其中包含该类的实现
+    - 该类的使用者随后可以通过包含（使用 `#include` ）头文件来使用该类
+
+### 头文件(.h)
+```cpp
+//RangomBag.h
+#pragma once //防止头文件重复包含
+#include <vector>
+
+class RandomBag { //定义类名
+public: //公共部分
+  void add(int value); //方法(成员函数)
+  int removeRandom(); 
+  int size(); const //使用const关键字的意思是“我保证这个函数不会改变对象的状态"
+  bool isEmpty(); const
+  
+private: //私有部分
+  vector<int> elems; //成员变量
+};
+```
+
+### 实现文件(.cpp中)
+```cpp
+#include "RandomBag.h" 
+using namespace std;
+
+void RandomBag::add(int value) { //::运算符称为作用域解析运算符,用于指定查找对象的位置
+	elems.push_back(value);
+}
+
+int RandomBag::removeRandom() {
+if (elems.isEmpty()) {
+	cout << "Aaaaahhh!";
+	}
+	
+	int index = randomInteger(0, size() - 1); //这段代码调用了类内的`size()`函数,类的实现可以使用公共接口
+	int result = elems[index];
+	elems.pop_back(index);
+	return result;
+}
+	
+int RandomBag::size() const { //我们还要记得把const也添加到实现中
+	return elems.size();
+}
+bool RandomBag::isEmpty() const {
+	return size() == 0; 
+}
+```
+
+### 要点总结
+- 在头文件中声明的公共成员变量在`.cpp`文件中可自动访问
+- **一般**要这么设计: 成员变量是私有的，您可以创建公共成员函数来允许用户编辑它们
+- 成员函数有一个隐式参数，使它们能够知道它们正在操作哪个对象
+- 如果没有构造函数，则会使用一个**默认的无参构造函数**来实例化所有私有成员变量
+    - 很快就会看到一个显式构造函数！
+
 > NOT END

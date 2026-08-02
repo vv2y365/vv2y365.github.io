@@ -2,71 +2,71 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Welcome on .</title>
-    <link>http://localhost:3310/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content in Welcome on .</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>mrwang150@qq.com ( )</managingEditor>
     <webMaster>mrwang150@qq.com ( )</webMaster>
     <copyright>© 2026 Building...</copyright>
-    <lastBuildDate>Sun, 19 Jul 2026 16:38:15 +0800</lastBuildDate><atom:link href="http://localhost:3310/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Jul 2026 16:38:15 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Opengl绘制</title>
-      <link>http://localhost:3310/posts/opengl/</link>
+      <link>http://localhost:1313/posts/opengl/</link>
       <pubDate>Sun, 19 Jul 2026 16:38:15 +0800</pubDate>
       <author>mrwang150@qq.com ( )</author>
-      <guid>http://localhost:3310/posts/opengl/</guid>
+      <guid>http://localhost:1313/posts/opengl/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Skia编译流程</title>
-      <link>http://localhost:3310/posts/skiacompiling/</link>
+      <link>http://localhost:1313/posts/skiacompiling/</link>
       <pubDate>Thu, 16 Jul 2026 22:28:20 +0800</pubDate>
       <author>mrwang150@qq.com ( )</author>
-      <guid>http://localhost:3310/posts/skiacompiling/</guid>
+      <guid>http://localhost:1313/posts/skiacompiling/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>CS106B</title>
-      <link>http://localhost:3310/posts/cs106b/</link>
+      <link>http://localhost:1313/posts/cs106b/</link>
       <pubDate>Sun, 12 Jul 2026 22:12:35 +0800</pubDate>
       <author>mrwang150@qq.com ( )</author>
-      <guid>http://localhost:3310/posts/cs106b/</guid>
+      <guid>http://localhost:1313/posts/cs106b/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>A title</title>
-      <link>http://localhost:3310/memento/</link>
+      <link>http://localhost:1313/memento/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>mrwang150@qq.com ( )</author>
-      <guid>http://localhost:3310/memento/</guid>
+      <guid>http://localhost:1313/memento/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Just kidding! &gt;&lt;</title>
-      <link>http://localhost:3310/fun/</link>
+      <link>http://localhost:1313/fun/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>mrwang150@qq.com ( )</author>
-      <guid>http://localhost:3310/fun/</guid>
+      <guid>http://localhost:1313/fun/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Sponsors</title>
-      <link>http://localhost:3310/wax/</link>
+      <link>http://localhost:1313/wax/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>mrwang150@qq.com ( )</author>
-      <guid>http://localhost:3310/wax/</guid>
+      <guid>http://localhost:1313/wax/</guid>
       <description></description>
       
     </item>
