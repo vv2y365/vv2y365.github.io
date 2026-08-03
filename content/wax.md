@@ -15,7 +15,7 @@ showPagination: false
   
 <div class="flex flex-wrap justify-center gap-0 m-0 p-0 my-0 mb-0 mt-0" style="margin: 0 !important; padding: 0 !important;">
   <a href="https://space.bilibili.com/1385775237" target="_blank" rel="noopener noreferrer" class="group relative flex flex-col items-center m-0 p-0" title="Miyako" aria-label="Sponsor: Miyako" style="margin: 0 !important; padding: 0 !important;">
-    <img class="nozoom h-16 w-16 rounded-full ring-2 ring-primary-500 transition-transform group-hover:scale-110 m-0" src="https://inhwuxtzwwyidklodzrk.supabase.co/storage/v1/object/public/music/wax.png" alt="Miyako" width="64" height="64" loading="lazy" style="margin: 0 !important;">
+    <img class="nozoom h-16 w-16 rounded-full ring-2 ring-primary-500 transition-transform group-hover:scale-110 m-0" src="img/wax.png" alt="Miyako" width="64" height="64" loading="lazy" style="margin: 0 !important;">
     <span class="block w-full truncate text-center text-sm text-neutral-600 transition-colors group-hover:text-primary-500 dark:text-neutral-400 m-0 p-0 leading-none" style="margin: 10px !important; padding: 0 !important;">
       @Miyako
     </span>
