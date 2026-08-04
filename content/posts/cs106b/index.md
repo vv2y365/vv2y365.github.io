@@ -2512,4 +2512,76 @@ firstTen[10] = 42; // ❌ 缓冲区溢出
 | 数组与动态内存 | 目前我们学习了通过数组分配动态内存的方法 |
 | 动态数组特点 | 动态数组会提供一块连续的内存空间，并且这块空间只能存储同一种类型的数据，例如 `int`、`string`、`double` 等 |
 
+# 18. ADT
+Arrays vs. Vectors
+- 如果要在程序中以结构化的方式存储信息，数组是必不可少的工具
+- 向量是一种很好的抽象概念，它提供了有用的方法和简洁的接口，其他程序员可以利用这些方法和接口来解决有趣的问题
+- 想法：让我们使用动态分配的数组作为`vector`类的底层数据存储方法,两全其美
+
+## 设计OurVector
+OurVector介绍
+- 目标：让我们创建我们自己Vector版本
+- 范围限制(又名 万事开头难)
+    - 我们将仅实现斯坦福向量所提供功能的一个子集
+    - `OurVector` 仅存储整数
+- 最初，`OurVector` 只能存储固定数量的元素，但我们会在课程结束时解除这个限制，目前，如果空间不足，我们会抛出一个错误 
+
+我们如何设计`OurVector`
+- 成员函数: `OurVector`应该支持哪些公共接口？客户端可能想要调用哪些函数
+- 成员变量：为了跟踪存储在`OurVector`中的数据，我们需要存储哪些私有信息？
+- 构造函数：当创建`OurVector`的新实例时，成员变量是如何初始化的
+
+OurVector 公共接口
+```cpp
+class OurVector {
+public:
+ 	OurVector();
+ 	void add(int value);
+	 void insert(int index, int value);
+ 	int get(int index); //我们将使用 get 方法来模拟 [] 运算符的功能
+ 	void remove(int index);
+	 int size();
+	 bool isEmpty();
+private:
+ /* To be defined soon! */
+};
+```
+
+OurVector 成员变量
+- `int* elements;` 指向整数数组的指针，该数组将作为我们的底层数据存储机制
+- `int allocatedCapacity;` 一个整数，用于存储已分配元素数组的大小，请记住，数组本身并不感知自身大小，因此我们必须手动跟踪它
+- `int numItems;` 一个整数，用于存储向量中当前存储的元素数量
+
+OurVector 头文件
+```cpp
+class OurVector {
+public:
+	 OurVector();
+	 ~OurVector();
+	 void add(int value);
+	 void insert(int index, int value);
+	 int get(int index);
+	 void remove(int index);
+	 int size();
+	 bool isEmpty();
+private:
+	 int* elements;
+	 int allocatedCapacity;
+	 int numItems;
+};
+```
+
+OurVector 构造函数
+- 构造函数必须将所有成员变量的值初始化为最初有意义的值
+- 应将`allocatedCapacity`设置为一个较小的整数
+- 应该使用`new[]`关键字来分配元素数组
+- `numItems`计数器应初始化为`0`
+
+OurVector 析构函数
+- 析构函数是一个特殊的成员函数，负责清理对象的内存
+- 对元素数组调用`delete[]`运算符，正式将该内存交还给计算机，以避免任何内存泄漏
+- 当对象的生命周期结束时（例如，当局部变量超出作用域时），它会自动被调用
+- 其他成员变量都是简单的栈分配变量，因此无需进行特殊清理
+- 名为 ClassName 的类的析构函数具有`~ClassName()`签名
+
 > NOT END
