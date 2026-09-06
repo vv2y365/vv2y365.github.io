@@ -1,0 +1,95 @@
+.pan-app {
+  --pan-ink: #16242a;
+  --pan-muted: #66747a;
+  --pan-line: #d9e0df;
+  --pan-paper: #f5f7f5;
+  --pan-accent: #d85b38;
+  --pan-accent-dark: #a53e25;
+  min-height: calc(100vh - 13rem);
+  margin-inline: -1.5rem;
+  color: var(--pan-ink);
+  font-size: 1rem;
+}
+.dark .pan-app { --pan-ink: #edf3ef; --pan-muted: #aab7b4; --pan-line: #34413f; --pan-paper: #182321; --pan-accent: #ee7955; --pan-accent-dark: #ff9979; }
+.pan-app button, .pan-app input { font: inherit; }
+.pan-gate { max-width: 30rem; margin: 5rem auto 8rem; padding: 3rem; border: 1px solid var(--pan-line); background: var(--pan-paper); }
+.pan-gate-mark, .pan-brand-mark { display: grid; place-items: center; background: var(--pan-accent); color: #fff; font-weight: 800; }
+.pan-gate-mark { width: 3.2rem; height: 3.2rem; margin-bottom: 2.5rem; font-size: 1.5rem; }
+.pan-kicker { margin: 0 0 .65rem; color: var(--pan-accent); font-size: .7rem; font-weight: 800; letter-spacing: .16em; }
+.pan-gate h1, .pan-heading-row h1 { margin: 0; color: var(--pan-ink); font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: 0; }
+.pan-muted { color: var(--pan-muted); }
+.pan-login-form { margin-top: 2.5rem; }
+.pan-login-form label { display: block; margin-bottom: .5rem; font-size: .8rem; font-weight: 700; }
+.pan-password-row { display: flex; border: 1px solid var(--pan-line); background: transparent; }
+.pan-password-row input { min-width: 0; flex: 1; border: 0; padding: .9rem 1rem; color: var(--pan-ink); background: transparent; outline: none; }
+.pan-icon-button { border: 0; border-left: 1px solid var(--pan-line); padding: 0 .9rem; color: var(--pan-muted); background: transparent; cursor: pointer; font-size: .8rem; }
+.pan-primary-button, .pan-secondary-button, .pan-tool-button { display: inline-flex; align-items: center; justify-content: center; min-height: 2.6rem; border: 1px solid transparent; padding: .65rem 1rem; cursor: pointer; font-weight: 700; transition: background .15s ease, color .15s ease, border-color .15s ease; }
+.pan-primary-button { background: var(--pan-accent); color: #fff; }
+.pan-primary-button:hover { background: var(--pan-accent-dark); }
+.pan-login-form .pan-primary-button { width: 100%; margin-top: 1rem; }
+.pan-secondary-button { border-color: var(--pan-line); color: var(--pan-ink); background: transparent; }
+.pan-secondary-button:hover, .pan-tool-button:hover { border-color: var(--pan-accent); color: var(--pan-accent); }
+.pan-status, .pan-notice { min-height: 1.5rem; color: var(--pan-accent); font-size: .85rem; }
+.pan-desk { width: 100%; padding: 1rem 0 5rem; }
+.pan-toolbar { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--pan-line); padding: .8rem 0 1.2rem; }
+.pan-brand { display: flex; align-items: center; gap: .75rem; }
+.pan-brand-mark { width: 2.25rem; height: 2.25rem; font-size: 1rem; }
+.pan-brand strong, .pan-brand span { display: block; line-height: 1.1; }
+.pan-brand strong { font-size: 1rem; }
+.pan-brand div span { margin-top: .3rem; color: var(--pan-muted); font-size: .65rem; letter-spacing: .12em; text-transform: uppercase; }
+.pan-toolbar-actions, .pan-actions, .pan-heading-row, .pan-actions-row { display: flex; align-items: center; }
+.pan-toolbar-actions { gap: .5rem; }
+.pan-tool-button { min-height: 2.2rem; border-color: var(--pan-line); background: transparent; color: var(--pan-ink); font-size: .8rem; }
+.pan-tool-button-danger:hover { color: #b33d2c; border-color: #b33d2c; }
+.pan-heading-row { justify-content: space-between; padding: 3.5rem 0 2rem; }
+.pan-heading-row h1 { font-size: clamp(2rem, 4vw, 3.25rem); }
+.pan-account { color: var(--pan-muted); font-size: .8rem; }
+.pan-actions-row { justify-content: space-between; gap: 1.5rem; border-top: 1px solid var(--pan-line); border-bottom: 1px solid var(--pan-line); padding: 1rem 0; }
+.pan-breadcrumbs { display: flex; align-items: center; flex-wrap: wrap; gap: .25rem; font-size: .85rem; }
+.pan-breadcrumbs button { border: 0; padding: .25rem .35rem; color: var(--pan-muted); background: transparent; cursor: pointer; }
+.pan-breadcrumbs button:last-child { color: var(--pan-ink); font-weight: 700; }
+.pan-breadcrumb-separator { color: var(--pan-line); }
+.pan-actions { flex-wrap: wrap; justify-content: flex-end; gap: .5rem; }
+.pan-search input { width: 10rem; border: 1px solid var(--pan-line); padding: .65rem .8rem; color: var(--pan-ink); background: transparent; outline: none; }
+.pan-search input:focus, .pan-password-row:focus-within { border-color: var(--pan-accent); }
+.pan-upload-button { position: relative; overflow: hidden; }
+.pan-upload-button input { position: absolute; inset: 0; width: 100%; cursor: pointer; opacity: 0; }
+.pan-file-table { margin-top: 1.5rem; }
+.pan-table-head, .pan-file-row { display: grid; grid-template-columns: minmax(16rem, 1fr) 7rem 8rem 10rem 7rem; gap: 1rem; align-items: center; }
+.pan-table-head { padding: .6rem 1rem; color: var(--pan-muted); font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.pan-file-row { border-top: 1px solid var(--pan-line); padding: 1rem; }
+.pan-file-row:hover { background: color-mix(in srgb, var(--pan-paper) 70%, var(--pan-accent) 30%); }
+.pan-file-name { display: flex; min-width: 0; align-items: center; gap: .75rem; color: var(--pan-ink); text-align: left; }
+.pan-file-name-button { overflow: hidden; border: 0; padding: 0; background: transparent; color: inherit; cursor: pointer; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
+.pan-file-icon { display: grid; width: 2.2rem; height: 2.2rem; flex: 0 0 2.2rem; place-items: center; border: 1px solid var(--pan-line); color: var(--pan-accent); font-size: .68rem; font-weight: 800; }
+.pan-file-row > span { overflow: hidden; color: var(--pan-muted); font-size: .8rem; text-overflow: ellipsis; white-space: nowrap; }
+.pan-row-actions { display: flex; justify-content: flex-end; gap: .3rem; }
+.pan-row-actions button { border: 0; padding: .3rem; color: var(--pan-muted); background: transparent; cursor: pointer; font-size: .75rem; }
+.pan-row-actions button:hover { color: var(--pan-accent); }
+.pan-empty { border-top: 1px solid var(--pan-line); padding: 4rem 1rem; color: var(--pan-muted); text-align: center; }
+.pan-notice { margin-top: .8rem; }
+.pan-progress { height: .25rem; margin-top: .5rem; background: var(--pan-line); }
+.pan-progress span { display: block; width: 0; height: 100%; background: var(--pan-accent); transition: width .15s ease; }
+.pan-player { position: fixed; z-index: 100; inset: 0; display: grid; place-items: center; padding: 1rem; }
+.pan-player-backdrop { position: absolute; inset: 0; background: rgb(6 14 15 / .84); }
+.pan-player-dialog { position: relative; width: min(72rem, 100%); padding: 1rem; background: #101817; box-shadow: 0 2rem 5rem rgb(0 0 0 / .35); }
+.pan-player-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; color: #fff; }
+.pan-player-head h2 { overflow: hidden; margin: .2rem 0 1rem; font-size: 1rem; text-overflow: ellipsis; white-space: nowrap; }
+.pan-close-button { border: 0; color: #fff; background: transparent; cursor: pointer; font-size: 1.7rem; line-height: 1; }
+.pan-player video { display: block; width: 100%; max-height: 75vh; background: #000; }
+.pan-player-error { color: #ffad96; font-size: .85rem; }
+[hidden] { display: none !important; }
+@media (max-width: 800px) {
+  .pan-app { margin-inline: 0; }
+  .pan-gate { margin: 2rem 0 5rem; padding: 2rem 1.25rem; }
+  .pan-heading-row { padding: 2.5rem 0 1.5rem; }
+  .pan-actions-row { display: block; }
+  .pan-actions { justify-content: flex-start; margin-top: 1rem; }
+  .pan-search { flex: 1 1 100%; }
+  .pan-search input { width: 100%; }
+  .pan-table-head { display: none; }
+  .pan-file-row { grid-template-columns: minmax(0, 1fr) auto; gap: .5rem .75rem; padding: 1rem .25rem; }
+  .pan-file-row > span { display: none; }
+  .pan-row-actions { grid-column: 2; grid-row: 1; }
+  .pan-file-name { grid-column: 1; grid-row: 1; }
+}

@@ -1,0 +1,9 @@
+name = "p14yer-pan"
+main = "pan-worker.js"
+compatibility_date = "2026-09-06"
+
+# Deploy the Worker, then add these as secrets with `wrangler secret put`:
+# PAN_PASSWORD       the shared access password, for example 0428
+# SESSION_SECRET     a long random value used to sign HttpOnly sessions
+# VYUYUN_APPID       your Vyuyun API appid
+# VYUYUN_APPSECRET   your Vyuyun API appsecret

@@ -1,0 +1,81 @@
+{{ define "main" }}
+  {{ $css := resources.Get "css/pan.css" | resources.Minify | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") }}
+  {{ $js := resources.Get "js/pan.js" | resources.Minify | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+  <div id="pan-app" class="pan-app" data-api-base="{{ "pan/api" | relURL }}">
+    <section class="pan-gate" data-view="gate">
+      <div class="pan-gate-mark" aria-hidden="true">P</div>
+      <p class="pan-kicker">PRIVATE MEDIA DESK</p>
+      <h1>进入 Pan</h1>
+      <p class="pan-muted">输入访问密码以打开文件空间</p>
+      <form class="pan-login-form" data-login-form>
+        <label for="pan-password">访问密码</label>
+        <div class="pan-password-row">
+          <input id="pan-password" name="password" type="password" inputmode="numeric" autocomplete="current-password" required>
+          <button class="pan-icon-button" type="button" data-toggle-password aria-label="显示密码">显示</button>
+        </div>
+        <button class="pan-primary-button" type="submit">进入文件空间</button>
+        <p class="pan-status" data-login-status role="status"></p>
+      </form>
+    </section>
+
+    <section class="pan-desk" data-view="desk" hidden>
+      <header class="pan-toolbar">
+        <div class="pan-brand">
+          <span class="pan-brand-mark">P</span>
+          <div>
+            <strong>Pan</strong>
+            <span>media desk</span>
+          </div>
+        </div>
+        <div class="pan-toolbar-actions">
+          <button class="pan-tool-button" type="button" data-refresh title="刷新文件列表">刷新</button>
+          <button class="pan-tool-button pan-tool-button-danger" type="button" data-logout>退出</button>
+        </div>
+      </header>
+
+      <div class="pan-heading-row">
+        <div>
+          <p class="pan-kicker">CLOUD STORAGE</p>
+          <h1>文件空间</h1>
+        </div>
+        <div class="pan-account" data-account>连接中</div>
+      </div>
+
+      <div class="pan-actions-row">
+        <nav class="pan-breadcrumbs" data-breadcrumbs aria-label="文件夹路径"></nav>
+        <div class="pan-actions">
+          <form class="pan-search" data-search-form>
+            <label class="sr-only" for="pan-search-input">搜索文件</label>
+            <input id="pan-search-input" type="search" placeholder="搜索文件" data-search-input>
+          </form>
+          <button class="pan-secondary-button" type="button" data-new-folder>新建文件夹</button>
+          <label class="pan-primary-button pan-upload-button">
+            上传文件
+            <input type="file" data-upload multiple>
+          </label>
+        </div>
+      </div>
+
+      <div class="pan-notice" data-notice role="status"></div>
+      <div class="pan-progress" data-progress hidden><span></span></div>
+
+      <div class="pan-file-table" data-file-table>
+        <div class="pan-table-head">
+          <span>名称</span><span>类型</span><span>大小</span><span>更新时间</span><span></span>
+        </div>
+        <div class="pan-file-list" data-file-list></div>
+      </div>
+    </section>
+
+    <div class="pan-player" data-player hidden>
+      <div class="pan-player-backdrop" data-close-player></div>
+      <div class="pan-player-dialog" role="dialog" aria-modal="true" aria-labelledby="pan-player-title">
+        <div class="pan-player-head"><h2 data-player-title></h2><button class="pan-close-button" type="button" data-close-player aria-label="关闭播放器">×</button></div>
+        <video controls playsinline data-player-video></video>
+        <p class="pan-player-error" data-player-error></p>
+      </div>
+    </div>
+  </div>
+  <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+{{ end }}

@@ -2672,7 +2672,7 @@ OurVector 析构函数
 - 在计算机系统中，有许多因素使得使用**十六进制（以16为基数）**数字系统来表示数字更加方便
     - 每个位值代表 16 的一个因子（\(16^0、16^1、16^2\)等），共有 16 个“数字”
     - 由于数字只有 10 个（0-9），因此该系统也使用字母 a 到 f 作为“数字”
-    - \(0,1,2,3,4,5,6,7,8,9,a(10),b(11),c(12),d(13),e(14),f(15)\)
+    - \(0,1...9,a(10),b(11),c(12),d(13),e(14),f(15)\)
 - 前缀`0x`用于表示该数字以十六进制表示
 - 最后，请记住，具体的地址值对我们来说没有任何特殊意义，因为它们始终是由计算机生成的，这只是一个有趣的题外话
 
@@ -2773,5 +2773,116 @@ void printPetName(string* petPtr) {
 ```
 
 (注意:不要解引用一个空指针时，你会遇到段错误，程序会崩溃！)
+
+# 21. 链表
+## 什么是链表
+- 链表是由一系列节点组成的链条
+- 每个节点包含两条信息：
+    - 存储在序列中的一些数据
+    - 指向链表中下一个节点的链接
+- 我们可以从第一个节点开始，沿着它的链接重复遍历链表
+
+![link](img/link.png)
+
+**好处**
+- 比数组更灵活
+    - 由于它们不是连续的，因此更容易重新排列
+- 我们可以高效地将新元素插入列表，或从列表中的任何位置删除现有元素
+- 我们永远不需要进行大规模的复制操作
+- 链表有很多优缺点，通常不是最佳的数据结构
+
+
+**Node结构**
+```cpp
+struct Node
+{
+	string data;
+	Node* next;
+}
+```
+
+- 该结构体是递归定义的！（节点和链表本身都是递归定义的）
+- 编译器可以处理节点定义中存在 `Node*` 的情况，因为它知道它只是一个指针
+    - (不可能在结构体内部递归地定义一个实际的节点对象)
+
+![node](img/node.png)
+
+(箭头符号`->`用于解引用 AND 操作，它专门用于访问指向结构体的**指针**的字段)
+
+## 操作链表
+常见的链表操作
+
+- 遍历
+- 重新配线
+- 插入
+- 删除
+
+**实现栈**
+
+栈即链表
+- 我们将维护一个指向栈顶元素的指针`Node* top` 
+    - 当栈为空时，该成员变量将被初始化为`nullptr`
+- 我们的链表节点将从栈顶连接到栈底
+- 我们的栈专门用于存储整数，因此我们的`Node`结构体的数据字段也将是`int`类型：
+
+```cpp
+struct Node
+{
+	int data;
+	Node* next;
+}
+```
+
+**push()**
+
+- 假设我们有如下栈，想要将数据压入其中：
+
+```cpp
+Stack myStack = {9, 8}; //8位于堆栈的“顶部”
+myStack.push(7); //我们希望结果为 {9, 8, 7}
+```
+
+![node2](img/node2.png)
+
+**错误地释放链表**
+
+```cpp
+void freeList(Node* list) {
+ /* ❌❌❌❌❌❌❌❌❌❌❌ */
+ 	while (list != nullptr) {
+ 		delete list;
+ 		list = list->next;
+ 	}
+ }
+```
+
+**正确地释放链表**
+
+```cpp
+void freeList(Node* list) {
+ 	while (list != nullptr) {
+ 		Node* next = list->next;
+ 		delete list;
+ 		list = next;
+ 	}
+ }
+```
+
+**带尾指针的列表**
+
+```cpp
+Node* createListWithTailPtr(Vector<string> values) {
+ 	if (values.isEmpty()) return nullptr;
+ 	Node* head = new Node(values[0], nullptr);
+ 	
+ 	Node* cur = head;
+	 for (int i = 1; i < values.size(); i++) {
+		 Node* newNode = new Node(values[i], nullptr);
+		 cur->next = newNode;
+ 		cur = newNode;
+ 	}
+ 	return head;
+}
+```
 
 > NOT END

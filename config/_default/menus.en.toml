@@ -25,6 +25,11 @@
   url = "/memento"
   weight = 10
 
+[[main]]
+  name = "Pan"
+  url = "/pan/"
+  weight = 10
+
 #[[main]]
 #  name = "example sub-menu 1"
 #  parent = "Parent"
@@ -78,7 +83,3 @@
   name = "Sponsor"
   pageRef = "wax"
   weight = 10
-
-
-
-  
