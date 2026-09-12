@@ -10,7 +10,7 @@ showPagination: false
 replyByEmail: false
 ---
 
-<div class="memento-player" id="memento-player">
+<!-- <div class="memento-player" id="memento-player">
     <video
         id="memento-video"
         controls
@@ -21,6 +21,28 @@ replyByEmail: false
     >
         <source
             src="https://www.vyuyun.com/apiv1/api/linkurljump/6Qn5Fl/vwH-uCw_i_QyiHNVtEfekPtBX12iiqtesoYaWfL2vpE*"
+            type="video/mp4"
+        >
+        当前浏览器不支持 HTML5 视频播放。
+    </video>
+    <div class="memento-player-controls">
+        <span id="memento-status" role="status" aria-live="polite"></span>
+        <button id="memento-fullscreen" type="button">网页全屏</button>
+    </div>
+</div> -->
+
+
+<div class="memento-player" id="memento-player">
+    <video
+        id="memento-video"
+        controls
+        playsinline
+        preload="none"
+        width="2560"
+        height="1440"
+    >
+        <source
+            src="https://www.vyuyun.com/apiv1/api/linkurljump/K4mEFj/B1diKklfOFg7Hq-fXw27j8EupjcYidk8Vv8rA43vWDU*"
             type="video/mp4"
         >
         当前浏览器不支持 HTML5 视频播放。
