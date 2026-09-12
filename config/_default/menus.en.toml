@@ -21,8 +21,8 @@
   weight = 10
 
 [[main]]
-  name = "Memento"
-  url = "/memento"
+  name = "Music"
+  url = "/music"
   weight = 10
 
 [[main]]

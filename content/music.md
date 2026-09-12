@@ -20,7 +20,7 @@ replyByEmail: false
         height="1440"
     >
         <source
-            src="https://www.vyuyun.com/apiv1/api/linkurljump/w84nTj/6p2SFXsSvV8Q_BDAJAclP9-wIzWK4rEtesWzTiS4u7w*"
+            src="https://www.vyuyun.com/apiv1/api/linkurljump/6Qn5Fl/vwH-uCw_i_QyiHNVtEfekPtBX12iiqtesoYaWfL2vpE*"
             type="video/mp4"
         >
         当前浏览器不支持 HTML5 视频播放。
@@ -74,7 +74,7 @@ replyByEmail: false
         gap: 1rem;
         min-height: 2.75rem;
         padding: .5rem .75rem;
-        color: #ffffff;
+        color: #4887e6;
         background: rgba(255, 255, 255, 0);
         font-size: .85rem;
     }
