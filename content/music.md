@@ -20,7 +20,7 @@ replyByEmail: false
         width="2560"
         height="1440"
     >
-        <sour
+        <source
             src="https://www.vyuyun.com/apiv1/api/linkurljump/AnaAIb/pJVkYdZo9yaLMUfHPlocJM47h5RTq_pHcYN9vjBt-Ys*"
             type="video/mp4"
         >
