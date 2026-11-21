@@ -21,7 +21,7 @@ replyByEmail: false
         height="1440"
     >
         <source
-            src="https://www.vyuyun.com/apiv1/api/linkurljump/rZaZhR/BGD-TPHXcTtHFObChfRPYmRL9ATZ5BqtsrSWHC0QXSQ*"
+            src="https://www.vyuyun.com/apiv1/api/linkurljump/5lRdtJ/LNM8Co5DAG5Ra2BlljAk8Vn9TgeJL2a3AOaGDsl79wE*"
             type="video/mp4"
         >
         当前浏览器不支持 HTML5 视频播放。
